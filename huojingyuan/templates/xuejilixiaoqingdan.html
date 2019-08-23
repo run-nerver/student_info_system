@@ -1,0 +1,137 @@
+{% extends 'matter_base.html' %}
+{% block content %}
+    <style media="print">
+        .none{display:none;height:0px;}
+    　</style>
+    <button class="none" onclick="print()">打印文章</button>
+<div>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:18pt">&#xa0;</span></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:18pt">河</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">南</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">牧</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">业</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">经</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">济</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">学</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">院</span></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:18pt; font-weight:bold">离 校 清 单</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:14pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:14pt">各部门：</span></p>
+        <p
+            style="font-size:14pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; text-indent:26.25pt; widows:0">
+            <span style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline">{{ name.xy }}</span><span
+                style="font-family:宋体; font-size:14pt">院</span><span
+                style="font-family:宋体; font-size:14pt">(</span><span
+                style="font-family:宋体; font-size:14pt">系</span><span
+                style="font-family:宋体; font-size:14pt">)</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline">{{ name.xh[0:2] }} </span><span
+                style="font-family:宋体; font-size:14pt">年级</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline">{{ name_zy }}</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt">专业</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline">{{ name.bj[-2:] }}</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt">班，学生</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline">{{ name.xm }}</span><span
+                style="font-family:宋体; font-size:14pt">，（学号：</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span style="font-family:宋体; font-size:14pt; text-decoration:underline">{{ name.xh }}</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt">）。</span><span
+                style="font-family:宋体; font-size:14pt">原因：<span style="font-family:宋体; font-size:14pt; text-decoration:underline">&nbsp;{{ name.reason }}&nbsp;</span></span><span
+                style="font-family:宋体; font-size:14pt">，申请</span><span style="font-family:宋体; font-size:14pt"></span><span style="font-family:宋体; font-size:14pt; text-decoration:underline">保留学籍</span><span
+                style="font-family:宋体; font-size:14pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:14pt">，</span><span
+                style="font-family:宋体; font-size:14pt">请予以协助办理相关</span><span
+                style="font-family:宋体; font-size:14pt">离校手续</span><span style="font-family:宋体; font-size:14pt">。</span>
+        </p>
+        <p
+            style="font-size:14pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; text-indent:21pt; widows:0">
+            <span style="font-family:宋体; font-size:14pt; font-weight:bold">&#xa0;</span></p>
+        <p
+            style="font-size:14pt; line-height:150%; margin:0pt 6pt 0pt 0pt; orphans:0; text-align:right; text-indent:21pt; widows:0">
+            <span style="font-family:宋体; font-size:14pt">  </span><span
+                style="font-family:宋体; font-size:14pt">学籍管理科</span><span style="font-family:宋体; font-size:14pt">
+                （公章）</span><span style="font-family:宋体; font-size:14pt"> </span></p>
+       <p class=MsoNormal align=right style="text-indent:28.0000pt;mso-char-indent-count:2.0000;word-break:break-all;
+text-align:right;line-height:150%;"><span style="mso-spacerun:'yes';font-family:宋体;line-height:150%;
+font-size:14.0000pt;mso-font-kerning:1.0000pt;"><br>{{ format_today }}</span><span style="mso-spacerun:'yes';font-family:宋体;line-height:150%;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;</span><b><span style="mso-spacerun:'yes';font-family:宋体;line-height:150%;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;</span></b><b><span style="mso-spacerun:'yes';font-family:宋体;line-height:150%;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+					<o:p></o:p>
+				</span></b></p>
+        <p
+            style="font-size:12pt; line-height:150%; margin:0pt; orphans:0; text-align:right; text-indent:21pt; widows:0">
+            <span style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+        <p
+            style="font-size:12pt; line-height:150%; margin:0pt; orphans:0; text-align:right; text-indent:21pt; widows:0">
+            <span style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+        <p
+            style="font-size:12pt; line-height:150%; margin:0pt; orphans:0; text-align:right; text-indent:21pt; widows:0">
+            <span style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+        <p
+            style="font-size:12pt; line-height:150%; margin:0pt; orphans:0; text-align:right; text-indent:21pt; widows:0">
+            <span style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+        <table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt; width:429.85pt">
+            <tr style="height:155.95pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:203.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:14pt; font-weight:bold">公寓</span><span
+                            style="font-family:宋体; font-size:14pt; font-weight:bold">管理</span><span
+                            style="font-family:宋体; font-size:14pt; font-weight:bold">中心</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt; font-weight:bold">（盖 章）</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt; font-weight:bold">           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年    月    日</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:203.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:14pt; font-weight:bold">图书馆</span><span
+                            style="font-family:宋体; font-size:14pt; font-weight:bold">   </span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt; font-weight:bold">（盖 章）</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:'Times New Roman'; font-size:12pt; font-weight:bold">&#xa0;</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt; font-weight:bold">           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年    月    日</span></p>
+                </td>
+            </tr>
+            <tr style="height:38.45pt">
+                <td colspan="2"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:418.3pt">
+                    <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                            style="font-family:宋体; font-size:12pt; font-weight:bold">备注：</span></p>
+                </td>
+            </tr>
+            <tr style="height:0pt">
+                <td style="width:214.55pt; border:none"></td>
+                <td style="width:214.55pt; border:none"></td>
+            </tr>
+        </table>
+        <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:10.5pt">&#xa0;</span></p>
+    </div>
+{% endblock %}

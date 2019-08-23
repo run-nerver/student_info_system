@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    <iframe style="display:none" id="printIframe"></iframe>
+
+$(document).ready(function(){
+    
+    $("#printIframe").load(function(){//等待iframe加载完成后再执行doPrint.每次iframe设置src之后都会重新执行这部分代码。
+        doPrint();
+    });
+   
+});
+//点击打印按钮，触发事件】
+function printPDF(){
+    var src = $("#printIframe").attr("src");
+    if(!src){//当src为空，即第一次加载时才赋值，如果是需要动态生成的话，那么条件要稍稍变化一下
+        $("#printIframe").attr("src","./attachment/Images.pdf");//暂时静态PDF文件
+    }else
+        doPrint();
+}
+function doPrint(){
+    $("#printIframe")[0].contentWindow.print(); 
+}
+    </script>
+</head>
+<body>
+    <input id="printIframe" type="button" value="打印"/>  
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="container">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %}
+        </div>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                             通过下面的语句打印表单
+                    {{ render_form(form, action=request.full_path) }}
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+{# <form method="post">#}
+{##}
+{#                        {{ form.csrf_token }}#}
+{##}
+{#                        {{ form.name.label }}:{{ form.name(placeholder='请输入你的姓名') }}<br>#}
+{##}
+{#                        {{ form.stu_num.label }}:{{ form.stu_num(placeholder='请输入你的学号') }}<br>#}
+{##}
+{#                        {{ form.sex.label }}:{{ form.sex(placeholder='请选择你的性别') }}<br>#}
+{##}
+{#                        {{ form.matter.label }}:{{ form.matter(class='form-control') }}<br>#}
+{##}
+{#                        {{ form.reason.label }}:{{ form.reason(placeholder='请输入你的原因') }}<br>#}
+{##}
+{#                        {{ form.school_sttime.label }}:{{ form.school_sttime(placeholder='入校时间') }}<br>#}
+{##}
+{#                        {{ form.school_endtime.label }}:{{ form.school_endtime(placeholder='离校时间') }}<br>#}
+{##}
+{#                        {{ form.home_address.label }}:{{ form.home_address(placeholder='家庭住址') }}<br>#}
+{##}
+{#                        {{ form.home_tel.label }}:{{ form.home_tel(placeholder='家庭联系方式') }}<br>#}
+{##}
+{#                        {{ form.per_tel.label }}:{{ form.per_tel(placeholder='个人联系方式') }}<br>#}
+{##}
+{#                        {{ form.dom_campus.label }}:{{ form.per_tel(placeholder='原校区') }}<br>#}
+{##}
+{#                        {{ form.dom_built.label }}:{{ form.per_tel(placeholder='原宿舍楼号') }}<br>#}
+{##}
+{#                        {{ form.dom_dorm.label }}:{{ form.per_tel(placeholder='原寝室号') }}<br>#}
+{#                        <p style="text-align: center">{{ form.Submit }}</p>#}
+{##}
+{#</form>#}
+{% endblock %}

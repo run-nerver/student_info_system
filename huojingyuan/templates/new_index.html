@@ -1,0 +1,287 @@
+{% extends 'new_base.html' %} {% block content %}
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">xxxxx 学校</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            {#
+            <ul class="layui-nav layui-layout-left">#} {#
+                <li class="layui-nav-item"><a href="">业务中心</a></li>#} {# </ul>#}
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="{{ url_for('static',filename='') }}" class="layui-nav-img"> {{ current_user.name }}
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="{{ url_for('edit_teacher') }}">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="">
+                        <p class="float-right">
+                            <small>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('admin_login') }}">Login</a>
+                {% endif %}
+            </small>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">业务审核</a>
+                        <dl class="layui-nav-child">
+                            <dd><a id="javascript:;" href="all">全部业务</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E5%A4%8D%E5%AD%A6&department=admin&Submit=%E6%9F%A5%E8%AF%A2">复学类申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E8%BD%AC%E4%B8%93%E4%B8%9A&department=admin&Submit=%E6%9F%A5%E8%AF%A2">转专业申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E4%BC%91%E5%AD%A6&department=admin&Submit=%E6%9F%A5%E8%AF%A2">休学类申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E9%80%80%E5%AD%A6&department=admin&Submit=%E6%9F%A5%E8%AF%A2">退学类申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E5%AD%A6%E5%8E%86&department=admin&Submit=%E6%9F%A5%E8%AF%A2">学历证明申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=info&department=%E6%99%BA%E8%83%BD%E5%88%B6%E9%80%A0%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AD%A6%E9%99%A2&Submit=%E6%9F%A5%E8%AF%A2">保留学籍申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E6%B3%A8%E9%94%80&department=admin&Submit=%E6%9F%A5%E8%AF%A2">注销学籍申请</a></dd>
+                            <dd><a id="javascript:;" href="http://127.0.0.1:5000/query?&name=&datetimestart=&datetimeend=&matter=%E5%AD%A6%E7%B1%8D&department=admin&Submit=%E6%9F%A5%E8%AF%A2">在校生学籍证明申请</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">其他事项</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">特殊事项</a></dd>
+                            <dd><a href="javascript:;">特殊事项</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <br />
+            </blockquote>
+            <p class="layui-elem-quote"> &nbsp;<a href="front">业务申请</a>&nbsp;&nbsp;/&nbsp;&nbsp;查看今日 &nbsp; &nbsp;<a href="all" style="float: right">全部业务</a></p>
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger"><button class="layui-btn layui-btn-disabled layui-btn-radius">{{ message }}</button></div>
+            {% endfor %} {#
+            <form action="{{ url_for('query') }}" method="get">{{ form.csrf_token }}#} {#
+                <div class="layui-form-item">#} {##} {#
+                    <div class="layui-inline">#} {# <label class="layui-form-label" style="float: left;">姓名：</label>#} {#
+                        <div class="layui-input-inline">#} {# {{ form.name(class="layui-input") }}#} {# <input type="text" name="username" lay-verify="required" placeholder="请输入您的姓名" autocomplete="off" class="layui-input">#} {# </div>#} {# </div>#} {##} {#
+                    <div class="layui-inline">#} {# <label class="layui-form-label">院系：</label>#} {#
+                        <div class="layui-input-inline">#} {# <select name="quiz">#}
+{#            {% if current_user.xy == 'admin' %}#}
+{#                                    <td>{{ form.department(class="layui-select") }}</td>#}
+{#                                {% endif %}#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#        <div class="layui-inline">#}
+{#      <label class="layui-form-label" style="width: auto">办理事项：</label>#}
+{#      <div class="layui-input-inline">#}
+{#        <select name="quiz">#}
+{#            {{ form.matter(class="layui-select") }}#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#		<div class="layui-inline">#}
+{#			<div class="layui-inline" style="margin: auto">#}
+{#			    <label class="layui-form-label" style="width: auto;float: left;">选择时间：</label>#}
+{#			    <div class="layui-input-inline">#}
+{#                    {{ form.datetimestart(class="layui-input",type="date") }}#}
+{#					</div>#}
+{#                <div class="layui-input-inline" style="width: auto;margin: 10px">至&nbsp;&nbsp;</div>#}
+{#					<div class="layui-input-inline">#}
+{#                        {{ form.datetimeend(class="layui-input",type="date") }}#}
+{#					</div>#}
+{#			</div>#}
+{##}
+{#		</div>#}
+{##}
+{##}
+{##}
+{#	  <div class="layui-inline" >#}
+{#                {{ form.Submit(class="layui-btn layui-btn-radius")}}#}
+{#				<button type="reset" class="layui-btn layui-btn-primary layui-btn-radius">重置</button>#}
+{#			</div>#}
+{#		</div>#}
+{##}
+{##}
+{##}
+{#    <script type="text/javascript">#}
+{#    $("#datetimestart").datetimepicker({#}
+{#        format: 'yyyy-mm-dd',#}
+{#        minView: 'month',#}
+{#        language: 'zh-CN',#}
+{#        autoclose: true#}
+{##}
+{#    })#}
+{#    $("#datetimeend").datetimepicker({#}
+{#        format: 'yyyy-mm-dd',#}
+{#        minView: 'month',#}
+{#        language: 'zh-CN',#}
+{#        autoclose: true#}
+{#    })#}
+{#</script>#}
+{##}
+{#</form>#}
+
+
+
+
+<table class="layui-table" lay-filter="test3">
+{#    <thead>#}
+{#                <tr>#}
+{#                    <th>id</th>#}
+{#                    <th style="width: 10%">姓名</th>#}
+{#                    <th>学号</th>#}
+{#                    <th>学院</th>#}
+{#                    <th>班级</th>#}
+{#                    <!-- <th>学历证明</th>#}
+{#                    <th>学籍证明</th> -->#}
+{#                    <th>待办事项</th>#}
+{#                    <th>申请时间</th>#}
+{#                    <th>申请理由</th>#}
+{#                    <th>操作</th>#}
+{#                </tr>#}
+{#    </thead>#}
+  <thead>
+    <tr>
+      <th lay-data="{field:'学号',fixed: 'left', width:80, sort: true, edit: 'text'}">姓名</th>
+      <th lay-data="{field:'姓名', fixed: 'left',width:90, sort: true, edit: 'text'}">学号</th>
+      <th lay-data="{field:'性别', width:65, edit: 'text'}">学院</th>
+		<th lay-data="{field:'所在院校', edit: 'text', minWidth: 100}">班级</th>
+      <th lay-data="{field:'所在班级', edit: 'text', minWidth: 150}">待办事项</th>
+      <th lay-data="{field:'办理事项', sort: true, edit: 'text', minWidth: 150}">申请时间</th>
+			<th lay-data="{field:'申请原因', edit: 'text'}">申请理由</th>
+{#			<th lay-data="{field:'caozuo',minWidth: 300,fixed: 'right'}">操作</th>#}
+
+    </tr>
+  </thead>
+                <tbody>
+
+                {% for name in names %}
+                    {% if name.created_date == today %}
+                    <tr>
+{#                        <td>{{ name.id }}</td>#}
+                        <td>{{ name.xm }}</td>
+                        <td>{{ name.xh }}</td>
+                        <td>{{ name.xy }}</td>
+                        <td>{{ name.bj }}</td>
+                        {% if name.zt == '学历' %}
+                                        <td>
+                                            <a href="{{ url_for('xueli',name_id=name.id) }}" target="_blank">学历证明</a>
+                                        </td>
+                                    {% elif name.zt == '学籍' %}
+                                        <td>
+                                            <a href="{{ url_for('xueji',name_id=name.id) }}" target="_blank">在校生学籍证明</a>
+                                        </td>
+                                    {% elif name.zt == '注销' %}
+                                        <td>
+                                            <a href="{{ url_for('zhuxiaoxueji',name_id=name.id) }}" target="_blank">注销学籍</a>
+                                        </td>
+                                    {% elif name.zt == '保留学籍' %}
+                                        <td>
+                                            <a href="{{ url_for('xuejilixiaoqingdan',name_id=name.id) }}"target="_blank">1.保留学籍离校清单</a>
+                                            <a href="{{ url_for('xuejishenqingbiao',name_id=name.id) }}"target="_blank">2.保留学籍申请表</a>
+                                            <a href="{{ url_for('xuejitongzhishu',name_id=name.id) }}"target="_blank">3.保留学籍通知书</a>
+                                        </td>
+                                    {% elif name.zt == '复学' %}
+                                        <td>
+                                            <a href="{{ url_for('fuxueshenqing',name_id=name.id) }}"target="_blank">1.复学申请</a>
+                                            <a href="{{ url_for('fuxueruban',name_id=name.id) }}"target="_blank">2.复学入班通知单</a>
+                                        </td>
+                                    {% elif name.zt == '退学' %}
+                                        <td>
+                                            <a href="{{ url_for('tuixueshenqing',name_id=name.id) }}"target="_blank">1.退学申请</a>
+                                            <a href="{{ url_for('tuixue_lixiaoqingdan',name_id=name.id) }}"target="_blank">2.退学离校清单</a>
+                                            <a href="{{ url_for('tuixue_tongzhi',name_id=name.id) }}"target="_blank">3.退学通知书</a>
+                                        </td>
+                                    {% elif name.zt == '休学' %}
+                                        <td>
+                                            <a href="{{ url_for('xiuxueshenqing',name_id=name.id) }}"target="_blank">1.休学申请</a>
+                                            <a href="{{ url_for('xiuxuelixiaoqingdan',name_id=name.id) }}"target="_blank">2.休学离校清单</a>
+                                            <a href="{{ url_for('xiuxuetongzhi',name_id=name.id) }}"target="_blank">3.休学通知书</a>
+                                        </td>
+                                    {% elif name.zt == '转专业' %}
+                                        <td>
+                                            <a href="{{ url_for('zhuanyeshenqing',name_id=name.id) }}"target="_blank">1.转专业申请</a>
+                                            <a href="{{ url_for('zhuanyeruban',name_id=name.id) }}"target="_blank">2.转专业入班</a>
+                                        </td>
+                                {% endif %}
+                        <td>{{ name.created_date }}</td>
+                        <td>{{ name.reason }}</td>
+{#                        <td>#}
+{#                            {% if (name.zt == '退学' or name.zt == '休学' or name.zt == '复学') and (name.status == None or name.status == '') %}#}
+{#                                <div id='confirm_tx'>#}
+{#                                    <a class="layui-btn" href="{{ url_for('confirm_tx',name_id=name.id) }}">确认</a>#}
+{#                                </div>#}
+{#                            {% endif %}#}
+{#                            <form method="post" action="{{ url_for('delete_stu',name_id=name.id) }}">#}
+{#                                {{ delete_form.Submit(class="layui-btn") }}#}
+{#                            </form>#}
+{#                            <a  class="layui-btn layui-btn-primary" href="{{ url_for('edit_student',name_id=name.id) }}">编辑</a>#}
+{#                        </td>#}
+                    </tr>
+                {% endif %}
+                {% endfor %}
+
+                </tbody>
+{#  <thead>#}
+{#    <tr>#}
+{#      <th lay-data="{field:'学号',fixed: 'left', width:80, sort: true, edit: 'text'}">学号</th>#}
+{#      <th lay-data="{field:'姓名', fixed: 'left',width:90, sort: true, edit: 'text'}">姓名</th>#}
+{#      <th lay-data="{field:'性别', width:65, edit: 'text'}">性别</th>#}
+{#			<th lay-data="{field:'所在院校', edit: 'text', minWidth: 100}">所在院校</th>#}
+{#      <th lay-data="{field:'所在班级', edit: 'text', minWidth: 150}">所在班级</th>#}
+{#      <th lay-data="{field:'办理事项', sort: true, edit: 'text', minWidth: 150}">办理事项</th>#}
+{#			<th lay-data="{field:'申请原因', edit: 'text'}">申请原因</th>#}
+{#			<th lay-data="{field:'联系地址', edit: 'text', minWidth: 200}">联系地址</th>#}
+{#			<th lay-data="{field:'联系电话', sort: true, edit: 'text'}">联系电话</th>#}
+{#			<th lay-data="{field:'caozuo',minWidth: 200 ,fixed: 'right'}">操作</th>#}
+{##}
+{#    </tr>#}
+{#  </thead>#}
+</table>
+
+
+
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+
+  //监听单元格编辑
+  table.on('edit(test3)', function(obj){
+    var value = obj.value //得到修改后的值
+    ,data = obj.data //得到所在行所有键值
+    ,field = obj.field; //得到字段
+    layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+  });
+});
+</script>
+
+<!-- 此处为分页 -->
+{#<div id="demo7"></div>#}
+{#<div>{{ render_pagination(pagination) }}</div>#}
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    xxxxx 学校 - 学籍管理系统
+  </div>
+</div>
+<script src="../static/layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+</div>
+</body>
+
+{% endblock %}

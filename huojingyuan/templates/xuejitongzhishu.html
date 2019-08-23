@@ -1,0 +1,285 @@
+{% extends 'matter_base.html' %} {% block content %}
+
+
+<style>
+    @font-face {
+        font-family: "Times New Roman";
+    }
+    
+    @font-face {
+        font-family: "宋体";
+    }
+    
+    @font-face {
+        font-family: "Wingdings";
+    }
+    
+    @font-face {
+        font-family: "黑体";
+    }
+    
+    p.MsoNormal {
+        mso-style-name: 正文;
+        mso-style-parent: "";
+        margin: 0pt;
+        margin-bottom: .0001pt;
+        mso-pagination: none;
+        text-align: justify;
+        text-justify: inter-ideograph;
+        font-family: 'Times New Roman';
+        font-size: 10.5000pt;
+        mso-font-kerning: 1.0000pt;
+    }
+    
+    span .10 {
+        font-family: 'Times New Roman';
+    }
+    
+    span .15 {
+        font-family: 'Times New Roman';
+    }
+    
+    p.MsoHeader {
+        mso-style-name: 页眉;
+        margin: 0pt;
+        margin-bottom: .0001pt;
+        border-bottom: 1.0000pt solid windowtext;
+        mso-border-bottom-alt: 0.7500pt solid windowtext;
+        padding: 0pt 0pt 1pt 0pt;
+        layout-grid-mode: char;
+        mso-pagination: none;
+        text-align: center;
+        font-family: 'Times New Roman';
+        font-size: 9.0000pt;
+        mso-font-kerning: 1.0000pt;
+    }
+    
+    p.MsoFooter {
+        mso-style-name: 页脚;
+        margin: 0pt;
+        margin-bottom: .0001pt;
+        layout-grid-mode: char;
+        mso-pagination: none;
+        text-align: left;
+        font-family: 'Times New Roman';
+        font-size: 9.0000pt;
+        mso-font-kerning: 1.0000pt;
+    }
+    
+    p.MsoAcetate {
+        mso-style-name: 批注框文本;
+        margin: 0pt;
+        margin-bottom: .0001pt;
+        mso-pagination: none;
+        text-align: justify;
+        text-justify: inter-ideograph;
+        font-family: 'Times New Roman';
+        font-size: 9.0000pt;
+        mso-font-kerning: 1.0000pt;
+    }
+    
+    p.MsoDate {
+        mso-style-name: 日期;
+        mso-style-next: 正文;
+        margin-left: 5.0000pt;
+        mso-para-margin-left: 25.0000gd;
+        mso-pagination: none;
+        text-align: justify;
+        text-justify: inter-ideograph;
+        font-family: 'Times New Roman';
+        font-size: 10.5000pt;
+        mso-font-kerning: 1.0000pt;
+    }
+    
+    span.msoIns {
+        mso-style-type: export-only;
+        mso-style-name: "";
+        text-decoration: underline;
+        text-underline: single;
+        color: blue;
+    }
+    
+    span.msoDel {
+        mso-style-type: export-only;
+        mso-style-name: "";
+        text-decoration: line-through;
+        color: red;
+    }
+    
+    table.MsoNormalTable {
+        mso-style-name: 普通表格;
+        mso-style-parent: "";
+        mso-style-noshow: yes;
+        mso-tstyle-rowband-size: 0;
+        mso-tstyle-colband-size: 0;
+        mso-padding-alt: 0.0000pt 5.4000pt 0.0000pt 5.4000pt;
+        mso-para-margin: 0pt;
+        mso-para-margin-bottom: .0001pt;
+        mso-pagination: widow-orphan;
+        font-family: 'Times New Roman';
+        font-size: 10.0000pt;
+        mso-ansi-language: #0400;
+        mso-fareast-language: #0400;
+        mso-bidi-language: #0400;
+    }
+    
+    @page {
+        mso-page-border-surround-header: no;
+        mso-page-border-surround-footer: no;
+    }
+    
+    @page Section0 {
+        margin-top: 72.0000pt;
+        margin-bottom: 73.7000pt;
+        margin-left: 89.8500pt;
+        margin-right: 89.8500pt;
+        size: 595.3000pt 841.9000pt;
+        layout-grid: 15.6000pt;
+    }
+    
+    div.Section0 {
+        page: Section0;
+    }
+</style>
+<style media="print">
+    .none {
+        display: none;
+        height: 0px;
+    }
+</style>
+</head>
+<!--StartFragment-->
+
+<body><button class="none" onclick="print()">打印文章</button>
+    <div class="Section0" style="layout-grid:15.6000pt;">
+        <p class="MsoNormal" style="text-align:center;" align="center"><span style="mso-spacerun:'yes';font-family:宋体;font-size:18.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="text-align:center;" align="center">
+            <span style="mso-spacerun:'yes';font-family:黑体;font-size:18.0000pt;
+mso-font-kerning:1.0000pt;">
+                <font face="黑体">xxxxx 学校</font>
+            </span>
+            <span style="mso-spacerun:'yes';font-family:黑体;font-size:18.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin-top:7.8000pt;mso-para-margin-top:0.5000gd;text-align:center;" align="center">
+            <b>
+                <span style="mso-spacerun:'yes';font-family:宋体;font-weight:bold;font-size:18.0000pt;mso-font-kerning:1.0000pt;">
+                    <font face="宋体">保留学籍通知书</font>
+                </span></b><b><span style="mso-spacerun:'yes';font-family:宋体;font-weight:bold;font-size:18.0000pt;mso-font-kerning:1.0000pt;">
+            <o:p></o:p></span></b>
+        </p>
+        <p class="MsoNormal" style="text-align:center;" align="center">
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:10.5000pt;mso-font-kerning:1.0000pt;">
+                <o:p>&nbsp;</o:p></span>
+        </p>
+        <p class="MsoNormal">
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+                <font face="宋体" style="text-decoration:underline">&nbsp;{{ name.xy }}&nbsp;</font>
+                <font face="宋体">学院：</font>
+            </span>
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+                <o:p></o:p>
+            </span>
+        </p>
+        <p class="MsoNormal" style="text-indent:49.0000pt;mso-char-indent-count:3.5000;">
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+                <font face="宋体">你院（系）</font>
+            </span>
+            <u>
+                <span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;">&nbsp;<font face="宋体">{{ name_zy }} </font>
+                </span>
+            </u>
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+
+                <font face="宋体"></font>
+                    <font face="宋体">专业</font>
+                </span>
+            <u>
+                <span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+                &nbsp;<font face="宋体">{{ name.bj[-2:] }} </font></span>
+            </u>
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+
+                <font face="宋体">班，学生</font></span><u><span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;">&nbsp;<font face="宋体">{{ name.xm }}&nbsp;</font></span></u><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;"><font face="宋体">，（学号：</font>
+        </span>
+            <u>
+        <span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;"> <font face="宋体">{{ name.xh }}</font>
+        </span>
+            </u>
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">）。原因：</font> </span><u><span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;"><font face="宋体">{{ name.reason }}</font> </span></u><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">申请</font></span><u><span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;"><font face="宋体">保留学籍</font></span></u><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">，根据学生管理有关规定，经学校研究决定，同意</font> </span><u><span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;"><font face="宋体">其保留学籍的</font> </span></u><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">申请。保留学籍期限截止到</font></span><u><span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:14.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; <font
+                face="宋体">{{ name.school_endtime[0:4] }}年{#  {{ name.school_endtime[5:7] }}月 {{ name.school_endtime[8:10] }}日#}</font></span></u><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">，请在规定时间内办理完毕有关手续。</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+        <p class="MsoNormal" style="text-indent:28.0000pt;mso-char-indent-count:2.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="margin-right:30.0000pt;text-indent:28.0000pt;mso-char-indent-count:2.0000;text-align:center;" align="center"><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                face="宋体"> 学籍管理科（公章）</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+            <o:p></o:p>
+        </span>
+        </p>
+        <p></p>
+        <p class="MsoNormal" style="margin-right:36.0000pt;text-indent:28.0000pt;mso-char-indent-count:2.0000;
+word-break:break-all;text-align:right;" align="right"><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;">&nbsp;{{ format_today }}</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+        <p class="MsoNormal" style="text-indent:28.0000pt;mso-char-indent-count:2.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="text-indent:12.0000pt;mso-char-indent-count:1.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="text-indent:12.0000pt;mso-char-indent-count:1.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="margin-right:36.0000pt;text-indent:28.0000pt;mso-char-indent-count:2.0000;
+text-align:right;" align="right"><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="margin-right:15.0000pt;text-align:left;">
+            <span style="position:absolute;z-index:1;margin-left:-12.4000px;margin-top:3.7333px;width:580.0000px;height:2.0000px;">
+                <div style="border: 1px solid black;width: auto"></div>
+            </span>
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:15.0000pt;mso-font-kerning:1.0000pt;"><font face="宋体">抄送：财务处、各院系</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:15.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin-right:15.0000pt;text-indent:30.0000pt;mso-char-indent-count:2.0000;
+text-align:right;" align="right"><span style="position:absolute;z-index:1;left:0px;
+margin-left:-12.4000px;margin-top:0.3333px;width:580.0000px;
+height:2.0000px;"><div style="border: 1px solid black;width: auto"></div></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:15.0000pt;
+mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span></p>
+        <p class="MsoNormal" style="text-indent:12.0000pt;mso-char-indent-count:1.0000;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">备注：请于返校</font></span><u><span style="mso-spacerun:'yes';font-family:宋体;text-decoration:underline;
+text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font face="宋体"></font></span></u><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><font face="宋体">后到校办理复学手续，若逾期未办理的，视为自动退学。</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin-right:15.0000pt;">
+            <span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;mso-font-kerning:1.0000pt;">
+                <font style="font-family: 宋体;">
+                    <br>学籍管理员领取签字：
+                </font>
+                </span><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+        <p class="MsoNormal" style="margin-right:15.0000pt;text-align:right;" align="right"><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;">&nbsp;&nbsp;<font face="宋体">&nbsp;年</font>
+				<font face="Times New Roman"></font>
+				<font face="宋体">&nbsp;月</font>
+				<font face="Times New Roman"></font>
+				<font face="宋体">&nbsp;日</font></span><span style="mso-spacerun:'yes';font-family:宋体;font-size:14.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span></p>
+    </div>
+
+
+</body>
+
+
+
+
+{% endblock %}

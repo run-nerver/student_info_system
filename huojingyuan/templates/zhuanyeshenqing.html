@@ -1,0 +1,209 @@
+{% extends 'matter_base.html' %}
+{% block content %}
+    <style media="print">
+        .none{display:none;height:0px;}
+    　</style>
+<div><button class="none" onclick="print()">打印文章</button><br><br>
+        <p style="line-height:30pt; margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:18pt">河</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">南</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">牧</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">业</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">经</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">济</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">学</span><span style="font-family:黑体; font-size:18pt">
+            </span><span style="font-family:黑体; font-size:18pt">院</span></p>
+        <p style="line-height:30pt; margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:18pt">转专业申请表</span></p>
+        <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                style="font-family:宋体; font-size:12pt">&#xa0;</span></p>
+        <table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt; width:486.15pt">
+            <tr style="height:28.9pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">姓 名</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:61.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name.xm }}</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:37pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">性别</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:79.1pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name.sex }}</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:78.3pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">年级/班级</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.4pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name.bj[-2:] }}</span></p>
+                </td>
+            </tr>
+            <tr style="height:27.9pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">所学专业</span></p>
+                </td>
+                <td colspan="2"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:109pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name_zy }}</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:79.1pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">拟转入专业</span></p>
+                </td>
+                <td colspan="2"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:171.5pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name.discipline }}</span></p>
+                </td>
+            </tr>
+            <tr style="height:27.9pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">学号</span></p>
+                </td>
+                <td colspan="2"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:109pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name.xh }}</span></p>
+                </td>
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:79.1pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">校区、楼号、</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">宿舍号</span></p>
+                </td>
+                <td colspan="2"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:171.5pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">{{ name.school }}&nbsp;{{ name.dom_built }}&nbsp;{{ name.dom_campus }}</span></p>
+                </td>
+            </tr>
+            <tr style="height:118.5pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">本人申请</span><span
+                            style="font-family:宋体; font-size:12pt">理由</span></p>
+                </td>
+                <td colspan="5"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:381.2pt">
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:justify; text-indent:136pt; widows:0"><span
+                            style="font-family:Arial; font-size:12pt">&#xa0;</span></p>
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:justify; text-indent:136pt; widows:0"><span
+                            style="font-family:Arial; font-size:12pt">{{ name.reason }}</span></p>
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:justify; text-indent:136pt; widows:0"><span
+                            style="font-family:Arial; font-size:12pt">&#xa0;</span></p>
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:justify; text-indent:136pt; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">    </span><span
+                            style="font-family:宋体; font-size:12pt">学生本人签名：</span></p>
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">                  </span><span
+                            style="font-family:宋体; font-size:12pt">年</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">月</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">日</span></p>
+                </td>
+            </tr>
+            <tr style="height:118.8pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">转出</span><span
+                            style="font-family:宋体; font-size:12pt">院系领导</span><span
+                            style="font-family:宋体; font-size:12pt">意见</span></p>
+                </td>
+                <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:bottom; width:381.2pt">
+                    <p style="font-size:12pt; line-height:150%; margin:0pt 82.7pt 0pt 0pt; orphans:0; text-align:center; text-indent:160pt; widows:0">
+                        <span style="font-family:宋体; font-size:12pt">领导签字：   </span>
+                        <span style="font-family:宋体; font-size:12pt">          （院系公章）</span></p>
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">                      </span><span
+                            style="font-family:宋体; font-size:12pt">年</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">月</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">日</span></p>
+                </td>
+            </tr>
+            <tr style="height:118.5pt">
+                <td
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">转入</span><span
+                            style="font-family:宋体; font-size:12pt">院系领导</span><span
+                            style="font-family:宋体; font-size:12pt">意见</span></p>
+                </td>
+                <td colspan="5"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:bottom; width:381.2pt">
+                    <p style="font-size:12pt; line-height:150%; margin:0pt 82.7pt 0pt 0pt; orphans:0; text-align:center; text-indent:160pt; widows:0">
+                        <span style="font-family:宋体; font-size:12pt">领导签字：   </span>
+                        <span style="font-family:宋体; font-size:12pt">          （院系公章）</span></p>
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">                      </span><span
+                            style="font-family:宋体; font-size:12pt">年</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">月</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">日</span></p>
+                </td>
+            </tr>
+            <tr style="height:118.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:82.6pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">学</span><span
+                            style="font-family:宋体; font-size:12pt">校意见</span></p>
+                </td>
+                <td colspan="5"
+                    style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:bottom; width:381.2pt">
+                    <p style="font-size:12pt; line-height:150%; margin:0pt 82.7pt 0pt 0pt; orphans:0; text-align:center; text-indent:160pt; widows:0">
+                        <span style="font-family:宋体; font-size:12pt">领导签字：   </span>
+                        <span style="font-family:宋体; font-size:12pt">          （公章）</span></p>
+                    <p style="margin:0pt 48pt 0pt 0pt; orphans:0; text-align:center; widows:0"><span
+                            style="font-family:宋体; font-size:12pt">                      </span><span
+                            style="font-family:宋体; font-size:12pt">年</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">月</span><span
+                            style="font-family:宋体; font-size:12pt">  </span><span
+                            style="font-family:宋体; font-size:12pt">日</span></p>
+                </td>
+            </tr>
+            <tr style="height:0pt">
+                <td style="width:93.4pt; border:none"></td>
+                <td style="width:72pt; border:none"></td>
+                <td style="width:47.8pt; border:none"></td>
+                <td style="width:89.9pt; border:none"></td>
+                <td style="width:89.1pt; border:none"></td>
+                <td style="width:93.2pt; border:none"></td>
+            </tr>
+        </table>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:10.5pt">注：</span><span
+                style="font-family:宋体; font-size:10.5pt">申请表先由转出、转入院系签字，之后</span><span
+                style="font-family:宋体; font-size:10.5pt">把转出</span><span
+                style="font-family:宋体; font-size:10.5pt">、</span><span
+                style="font-family:宋体; font-size:10.5pt">转入院</span><span
+                style="font-family:宋体; font-size:10.5pt">（</span><span
+                style="font-family:宋体; font-size:10.5pt">系</span><span
+                style="font-family:宋体; font-size:10.5pt">）</span><span
+                style="font-family:宋体; font-size:10.5pt">签过字的表格送交学生处。</span></p>
+    </div>
+{% endblock %}

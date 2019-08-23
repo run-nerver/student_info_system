@@ -1,0 +1,185 @@
+{% extends 'matter_base.html' %}
+{% block content %}
+
+    <input type="button" value="打印文章" onclick="a()">
+
+
+    <div id=print class=WordSection1 style='layout-grid:15.6pt'>
+
+        <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"
+              xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+            <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+            <meta name=ProgId content=Word.Document>
+            <meta name=Generator content="Microsoft Word 14">
+            <meta name=Originator content="Microsoft Word 14">
+            <title></title>
+            <style>
+                @font-face {
+                    font-family: "Times New Roman";
+                }
+
+                @font-face {
+                    font-family: "宋体";
+                }
+
+                @font-face {
+                    font-family: "Calibri";
+                }
+
+                @font-face {
+                    font-family: "Wingdings";
+                }
+
+                p.MsoNormal {
+                    mso-style-name: 正文;
+                    mso-style-parent: "";
+                    margin: 0pt;
+                    margin-bottom: .0001pt;
+                    mso-pagination: none;
+                    text-align: justify;
+                    text-justify: inter-ideograph;
+                    font-family: Calibri;
+                    mso-fareast-font-family: 宋体;
+                    mso-bidi-font-family: 'Times New Roman';
+                    font-size: 10.5000pt;
+                    mso-font-kerning: 1.0000pt;
+                }
+
+                span
+
+                .10
+                {
+                    font-family: Calibri;
+                }
+
+                span.msoIns {
+                    mso-style-type: export-only;
+                    mso-style-name: "";
+                    text-decoration: underline;
+                    text-underline: single;
+                    color: blue;
+                }
+
+                span.msoDel {
+                    mso-style-type: export-only;
+                    mso-style-name: "";
+                    text-decoration: line-through;
+                    color: red;
+                }
+
+                table.MsoNormalTable {
+                    mso-style-name: 普通表格;
+                    mso-style-parent: "";
+                    mso-style-noshow: yes;
+                    mso-tstyle-rowband-size: 0;
+                    mso-tstyle-colband-size: 0;
+                    mso-padding-alt: 0.0000pt 5.4000pt 0.0000pt 5.4000pt;
+                    mso-para-margin: 0pt;
+                    mso-para-margin-bottom: .0001pt;
+                    mso-pagination: widow-orphan;
+                    font-family: 'Times New Roman';
+                    font-size: 10.0000pt;
+                    mso-ansi-language: #0400;
+                    mso-fareast-language: #0400;
+                    mso-bidi-language: #0400;
+                }
+
+                @page {
+                    mso-page-border-surround-header: no;
+                    mso-page-border-surround-footer: no;
+                }
+
+                @page Section0 {
+                    margin-top: 72.0000pt;
+                    margin-bottom: 72.0000pt;
+                    margin-left: 90.0000pt;
+                    margin-right: 90.0000pt;
+                    size: 595.3000pt 841.9000pt;
+                    layout-grid: 15.6000pt;
+                }
+
+                div.Section0 {
+                    page: Section0;
+                }
+            </style>
+
+        </head>
+        <body style="tab-interval:21pt;text-justify-trim:punctuation;"><!--StartFragment-->
+        <div class="Section0" style="layout-grid:15.6000pt;"><br>
+            <p class=MsoNormal align=center style="text-align:center;"><b><span
+                    style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:26.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">复</font>&nbsp;<font face="宋体">学</font>&nbsp;<font face="宋体">申</font>&nbsp;<font face="宋体">请</font></span></b><span
+                    style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+            </p>
+            <p class=MsoNormal><span
+                    style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;">{{ name.xh[0:2] }}</span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">级</font></span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">{{ name_zy }}专业</font>{{ name.bj[-2:] }}班</span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">，学生</font></span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">{{ name.xm }}</font></span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">，学号：</font>{{ name.xh }}，原因：{{ name.reason }}。特申请复学，望批准</span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                    face="宋体">。</font></span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal
+               style="margin-left:273.0000pt;mso-para-margin-left:0.0000gd;text-indent:21.0000pt;mso-char-indent-count:0.0000;">
+                <span style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><font
+                        face="宋体">{{ name.xy }}</font></span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;">&#9;</span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+            </p>
+            <p class=MsoNormal
+               style="margin-left:273.0000pt;mso-para-margin-left:0.0000gd;text-indent:21.0000pt;mso-char-indent-count:0.0000;">
+                <span style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;">{{ format_today }}</span><span
+                    style="mso-spacerun:'yes';font-family:宋体;font-size:16.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+            <p class=MsoNormal style="text-indent:21.0000pt;mso-char-indent-count:0.0000;"><span
+                    style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><o:p>&nbsp;</o:p></span>
+            </p>
+        </div><!--EndFragment--></body>
+        </html>
+
+{% endblock %}

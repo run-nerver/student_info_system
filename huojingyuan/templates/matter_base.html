@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    body {
+        height: 842px;
+        width: 595px;
+        /* to centre page on screen*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style>
+
+    <script src="{{url_for('static',filename='js/jquery.jqprint-0.3.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-migrate-1.2.1.min.js')}}"></script>
+    <script language="javascript">
+    function  a(){
+        $("#print").jqprint();
+    }
+    </script>
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,541 @@
+{% extends 'matter_base.html' %}
+{% block content %}
+
+        <style>
+            @font-face {
+                font-family: "Times New Roman";
+            }
+
+            @font-face {
+                font-family: "宋体";
+            }
+
+            @font-face {
+                font-family: "Wingdings";
+            }
+
+            @font-face {
+                font-family: "黑体";
+            }
+
+            @font-face {
+                font-family: "Arial";
+            }
+
+            p.MsoNormal {
+                mso-style-name: 正文;
+                mso-style-parent: "";
+                margin: 0pt;
+                margin-bottom: .0001pt;
+                mso-pagination: none;
+                text-align: justify;
+                text-justify: inter-ideograph;
+                font-family: 'Times New Roman';
+                font-size: 10.5000pt;
+                mso-font-kerning: 1.0000pt;
+            }
+
+            span
+
+            .10
+            {
+                font-family: 'Times New Roman'
+            ;
+            }
+
+            p.MsoHeader {
+                mso-style-name: 页眉;
+                margin: 0pt;
+                margin-bottom: .0001pt;
+                border-top: none;
+                mso-border-top-alt: none;
+                border-right: none;
+                mso-border-right-alt: none;
+                border-bottom: none;
+                mso-border-bottom-alt: none;
+                border-left: none;
+                mso-border-left-alt: none;
+                padding: 1pt 4pt 1pt 4pt;
+                layout-grid-mode: char;
+                mso-pagination: none;
+                text-align: justify;
+                text-justify: inter-ideograph;
+                font-family: 'Times New Roman';
+                font-size: 9.0000pt;
+                mso-font-kerning: 1.0000pt;
+            }
+
+            p.MsoFooter {
+                mso-style-name: 页脚;
+                margin: 0pt;
+                margin-bottom: .0001pt;
+                layout-grid-mode: char;
+                mso-pagination: none;
+                text-align: left;
+                font-family: 'Times New Roman';
+                font-size: 9.0000pt;
+                mso-font-kerning: 1.0000pt;
+            }
+
+            span.msoIns {
+                mso-style-type: export-only;
+                mso-style-name: "";
+                text-decoration: underline;
+                text-underline: single;
+                color: blue;
+            }
+
+            span.msoDel {
+                mso-style-type: export-only;
+                mso-style-name: "";
+                text-decoration: line-through;
+                color: red;
+            }
+
+            table.MsoNormalTable {
+                mso-style-name: 普通表格;
+                mso-style-parent: "";
+                mso-style-noshow: yes;
+                mso-tstyle-rowband-size: 0;
+                mso-tstyle-colband-size: 0;
+                mso-padding-alt: 0.0000pt 5.4000pt 0.0000pt 5.4000pt;
+                mso-para-margin: 0pt;
+                mso-para-margin-bottom: .0001pt;
+                mso-pagination: widow-orphan;
+                font-family: 'Times New Roman';
+                font-size: 10.0000pt;
+                mso-ansi-language: #0400;
+                mso-fareast-language: #0400;
+                mso-bidi-language: #0400;
+            }
+
+            @page {
+                mso-page-border-surround-header: no;
+                mso-page-border-surround-footer: no;
+            }
+
+            @page Section0 {
+                margin-top: 72.0000pt;
+                margin-bottom: 72.0000pt;
+                margin-left: 90.0000pt;
+                margin-right: 90.0000pt;
+                size: 595.3000pt 841.9000pt;
+                layout-grid: 15.6000pt;
+            }
+
+            div.Section0 {
+                page: Section0;
+            }
+        </style>
+      <style media="print">
+        .none{display:none;height:0px;}
+    　</style>
+<button class="none" onclick="print()">打印文章</button>
+<div id=print class=WordSection1 style='layout-grid:15.6pt'><br><br>
+        <div class="Section0" style="layout-grid:15.6000pt;">
+            <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:黑体;font-size:18.0000pt;
+mso-font-kerning:1.0000pt;">
+				<font face="黑体">河</font>
+				<font face="黑体">南</font>
+				<font face="黑体">牧</font>
+				<font face="黑体">业</font>
+				<font face="黑体">经</font>
+				<font face="黑体">济</font>
+				<font face="黑体">学</font>
+				<font face="黑体">院</font>
+			</span><span style="mso-spacerun:'yes';font-family:黑体;font-size:18.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+            <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:黑体;font-size:18.0000pt;
+mso-font-kerning:1.0000pt;">
+				<font face="黑体">保留学籍申请表</font>
+			</span><span style="mso-spacerun:'yes';font-family:黑体;font-size:18.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+            <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p>&nbsp;</o:p>
+			</span></p>
+            <table class=MsoNormalTable border=1 cellspacing=0 style="border-collapse:collapse;width:453.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:1.5000pt solid windowtext;mso-border-top-alt:1.5000pt solid windowtext;
+mso-border-right-alt:1.5000pt solid windowtext;mso-border-bottom-alt:1.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+                <tr style="height:36.8000pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.5000pt solid windowtext;mso-border-top-alt:1.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">院（系）</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=170 valign=center colspan=3 style="width:127.6000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.5000pt solid windowtext;mso-border-top-alt:1.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.xy }}</o:p>
+						</span></p>
+                    </td>
+                    <td width=113 valign=center style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.5000pt solid windowtext;mso-border-top-alt:1.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">专业班级</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=181 valign=center colspan=3 style="width:136.4500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.5000pt solid windowtext;mso-border-top-alt:1.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.bj }}</o:p>
+						</span></p>
+                    </td>
+                </tr>
+                <tr style="height:36.8000pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">姓名</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=122 valign=center style="width:92.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.xm }}</o:p>
+						</span></p>
+                    </td>
+                    <td width=47 valign=center colspan=2 style="width:35.4500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">性别</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=113 valign=center style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.sex }}</o:p>
+						</span></p>
+                    </td>
+                    <td width=47 valign=center colspan=2 style="width:35.4500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">学号</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=134 valign=center style="width:101.0000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.xh }}</o:p>
+						</span></p>
+                    </td>
+                </tr>
+                <tr style="height:36.0500pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">在校时间</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=465 valign=center colspan=7 style="width:349.1000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">20{{ name.xh[0:2] }}年9月&nbsp;&nbsp;&nbsp;&#8212; &nbsp;&nbsp;&nbsp;{{ name.school_endtime[0:4] }}年{{ name.school_endtime[6:7] }}月</span><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                </tr>
+                <tr style="height:31.5000pt;">
+                    <td width=138 valign=center rowspan=2 style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">家庭通讯地址</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=162 valign=center colspan=2 rowspan=2 style="width:121.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.home_address }}</o:p>
+						</span></p>
+                    </td>
+                    <td width=151 valign=center colspan=3 style="width:113.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">家庭联系方式</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=151 valign=center colspan=2 style="width:113.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.home_tel }}</o:p>
+						</span></p>
+                    </td>
+                </tr>
+                <tr style="height:31.5000pt;">
+                    <td width=151 valign=center colspan=3 style="width:113.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">个人联系方式</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=151 valign=center colspan=2 style="width:113.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.per_tel }}</o:p>
+						</span></p>
+                    </td>
+                </tr>
+                <tr style="height:106.6000pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">本人申请理由</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=465 valign=center colspan=7 style="width:349.1000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal style="margin-right:24.0000pt;"><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal style="margin-right:24.0000pt;"><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+							<o:p>{{ name.reason }}</o:p>
+						</span></p>
+                        <p class=MsoNormal style="margin-right:24.0000pt;"><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal
+                           style="margin-right:48.0000pt;text-indent:114.0000pt;mso-char-indent-count:9.5000;"><span
+                                style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学生本人签名：</span><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span><span
+                                style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                        <p class=MsoNormal
+                           style="margin-right:24.0000pt;text-indent:156.0000pt;mso-char-indent-count:13.0000;"><span
+                                style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;</span><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">年</span><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">月</span><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">日</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                </tr>
+                <tr style="height:91.8500pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">院系领导意见</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=465 valign=center colspan=7 style="width:349.1000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=right style="margin-right:54.3000pt;mso-para-margin-right:5.1700gd;text-align:right;
+line-height:150%;"><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal align=right style="margin-right:54.3000pt;mso-para-margin-right:5.1700gd;text-align:right;
+line-height:150%;"><span style="font-family:宋体;mso-ascii-font-family:Arial;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>&nbsp;
+						</span></p>
+                        <p class=MsoNormal style="margin-right:54.3000pt;mso-para-margin-right:5.1700gd;text-indent:120.0000pt;
+mso-char-indent-count:10.0000;text-align:left;line-height:150%;"><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">领导签字： &nbsp;&nbsp;&nbsp;</span><span
+                                style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">（院系公章）
+							<o:p></o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年</span><span
+                                style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp; 月
+							&nbsp;&nbsp; &nbsp;日</span><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p></span></p>
+                    </td>
+                </tr>
+                <tr style="height:31.5000pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">学生处意见</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=465 valign=center colspan=7 style="width:349.1000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal><span
+                                style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;领导签字：
+							&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;</span><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">（公章）</span><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年
+							&nbsp;&nbsp;&nbsp; 月 &nbsp;&nbsp;&nbsp;&nbsp;日</span><span
+                                style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr style="height:89.5000pt;">
+                    <td width=138 valign=center style="width:103.9000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.5000pt solid windowtext;
+mso-border-left-alt:1.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.5000pt solid windowtext;
+mso-border-bottom-alt:1.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">主管校领导审批</span><span style="font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                    </td>
+                    <td width=465 valign=center colspan=7 style="width:349.1000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.5000pt solid windowtext;mso-border-right-alt:1.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.5000pt solid windowtext;
+mso-border-bottom-alt:1.5000pt solid windowtext;">
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;&nbsp;&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal align=justify style="text-align:justify;text-justify:inter-ideograph;"><span
+                                style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p>&nbsp;</o:p>
+						</span></p>
+                        <p class=MsoNormal style="text-indent:132.0000pt;mso-char-indent-count:11.0000;
+text-justify:inter-ideograph;"><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">领导签字：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>
+                        <p class=MsoNormal align=center style="text-align:center;"><span
+                                style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年
+							&nbsp;&nbsp;&nbsp;&nbsp;月 &nbsp;&nbsp;&nbsp;&nbsp;日</span><span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">
+							<o:p></o:p>
+						</span></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+            </table>
+            <p class=MsoNormal style="text-indent:5.2500pt;mso-char-indent-count:0.5000;"><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:10.5000pt;mso-font-kerning:1.0000pt;">
+				<font face="宋体">注：</font>1<font face="宋体">．各院系负责收集审批保留申请材料，并交学生处存档。</font>
+			</span><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:10.5000pt;mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+            <p class=MsoNormal style="text-indent:26.2500pt;mso-char-indent-count:2.5000;"><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:10.5000pt;mso-font-kerning:1.0000pt;">2<font face="宋体">
+					．由各院系学籍管理员负责带领学生凭此表和《离校清单》办理后续手续。</font></span><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:10.5000pt;mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+            <p class=MsoNormal style="text-indent:26.2500pt;mso-char-indent-count:2.5000;"><span style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;font-size:10.5000pt;mso-font-kerning:1.0000pt;">3<font face="宋体">．学生处据此印发《保留学籍通知书》。</font>
+				</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+        </div>
+    </div>
+
+{% endblock %}

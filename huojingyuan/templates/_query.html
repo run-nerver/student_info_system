@@ -1,0 +1,68 @@
+<div class="text-center">
+    <h1>申请人员名单</h1>
+</div>
+
+<div style="margin:50px 0px 10px" class="text-center">
+    <h4>当前登录用户：{{ current_user.name }}</h4>
+    <h4>院系：{{ current_user.xy }}</h4>
+    <h4>当前总人数：{{ pagination.total }}</h4>
+</div>
+
+
+<div class="container">
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+</div>
+
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+
+            <form class="form-inline" method="get" action="{{ url_for('query') }}">
+                <div class="form-group">
+                    {{ form.csrf_token }}
+                    <table border="0">
+                        <tr>
+                            <td>{{ form.name.label }}</td>
+                            <td>{{ form.name(class='form-control') }}</td>
+                            <td>{{ form.datetimestart.label }}</td>
+                            <td>{{ form.datetimestart(class='form-control form-control-lg') }}</td>
+                            <td>{{ form.datetimeend.label }}</td>
+                            <td>{{ form.datetimeend(class='form-control') }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.matter.label }}</td>
+                            <td style="margin: auto;text-align: center">{{ form.matter(class='form-control') }}</td>
+                                {% if current_user.xy == 'admin' %}
+                                    <td>{{ form.department.label }}</td>
+                                    <td>{{ form.department(class='form-control') }}</td>
+                                {% endif %}
+                            <td></td>
+                            <td style="text-align: right">{{ form.Submit (class='form-control') }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#datetimestart").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView: 'month',
+        language: 'zh-CN',
+        autoclose: true
+
+    })
+    $("#datetimeend").datetimepicker({
+        format: 'yyyy-mm-dd',
+        minView: 'month',
+        language: 'zh-CN',
+        autoclose: true
+    })
+</script>
+
+

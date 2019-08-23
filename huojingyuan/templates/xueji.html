@@ -1,0 +1,93 @@
+{% extends 'matter_base.html' %} {% block content %}
+
+<input type="button" value="打印文章" onclick="a()">
+
+
+<div id=print class=WordSection1 style='layout-grid:15.6pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
+style='font-size:24.0pt;font-family:宋体;mso-hansi-font-family:Garamond;
+mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:24.0pt;font-family:宋体;mso-bidi-font-family:宋体'>在校生学籍证明</span></b><b><span
+lang=EN-US style='font-size:24.0pt;font-family:宋体;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></b></p>
+
+    <p class=MsoNormal><b><span lang=EN-US style='font-size:18.0pt;font-family:
+宋体;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+    <p class=MsoNormal style='text-indent:36.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span lang=EN-US style='font-size:18.0pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:楷体_GB2312'>{{name.xm}}</span><span style='font-size:18.0pt;line-height:150%;font-family:宋体;mso-bidi-font-family:
+楷体_GB2312'>，{{ name.sex }}，系我校</span><span lang=EN-US style='font-size:18.0pt;line-height:
+150%;font-family:宋体'>{{ name.xh[0:2] }}</span><span style='font-size:18.0pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:楷体_GB2312'>级<span lang=EN-US>{{name.xy}}</span>专业<span lang=EN-US>{{ name.bj[2:] }}</span>班学生，学制{{ name.leng_school }}<span lang=EN-US></span>，学号为</span><span lang=EN-US style='font-size:18.0pt;line-height:150%;font-family:宋体'>：{{name.xh}}</span>
+        <span
+            style='font-size:18.0pt;line-height:150%;font-family:宋体;mso-bidi-font-family:
+楷体_GB2312'>，身份证号为：
+            <a name="_GoBack"></a><span lang=EN-US>{{ name.identity }}</span>。</span><span lang=EN-US style='font-size:18.0pt;line-height:150%;font-family:宋体;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='text-indent:36.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span lang=EN-US style='font-size:18.0pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='text-indent:36.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span style='font-size:18.0pt;line-height:150%;font-family:
+宋体;mso-bidi-font-family:楷体_GB2312'>特此证明</span><span lang=EN-US style='font-size:18.0pt;line-height:150%;font-family:宋体;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='text-indent:36.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span lang=EN-US style='font-size:18.0pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='line-height:200%'><b><span lang=EN-US
+style='font-size:18.0pt;line-height:200%;font-family:宋体;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+    <p class=MsoNormal style='line-height:200%'><b><span lang=EN-US
+style='font-size:18.0pt;line-height:200%;font-family:宋体;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+    <p class=MsoNormal style='line-height:200%'><b><span lang=EN-US
+style='font-size:18.0pt;line-height:200%;font-family:宋体;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+    {#
+    <p class=MsoNormal style='margin-top:0cm;margin-right:71.0pt;margin-bottom:#}
+{#0cm;margin-left:504.0pt;margin-bottom:.0001pt;text-indent:21.0pt;line-height:#}
+{#200%;word-break:break-all'><span style='font-size:18.0pt;line-height:200%;#}
+{#font-family:宋体;mso-bidi-font-family:宋体'>xxxxx 学校学籍科</span></p>#}
+
+    <p class=MsoNormal align=right style='text-align:right;line-height:150%'><span style='font-size:16.0pt;line-height:150%;font-family:宋体'>xxxxx 学校学籍科<span
+lang=EN-US><o:p></o:p></span></span>
+    </p>
+
+    {#
+    <p class=MsoNormal align=center style='text-align:center;text-indent:28.5pt;#}
+{#line-height:200%'><span lang=EN-US style='font-size:18.0pt;line-height:200%;#}
+{#font-family:宋体;mso-bidi-font-family:宋体'><span#}
+{#style='mso-spacerun:yes'>                 </span>
+        <span#} {#style='mso-spacerun:yes'>  </span><span style='mso-tab-count:1'> </span></span>
+            <span#} {#style='font-size:18.0pt;line-height:200%;font-family:宋体;mso-bidi-font-family:#}
+{#宋体'>二零一六年<span lang=EN-US>X</span>月<span lang=EN-US>XXX</span>日</span>
+                <span#} {#lang=EN-US style='font-size:18.0pt;line-height:200%;font-family:宋体;mso-bidi-font-family:#}
+{#"Times New Roman"'>
+                    <o:p></o:p>
+                    </span>
+    </p>#}
+
+    <p class=MsoNormal align=right style='text-align:right;line-height:150%;
+word-break:break-all'><span lang=EN-US style='font-size:16.0pt;line-height:
+150%;font-family:宋体'><span style='mso-spacerun:yes'> </span></span><span style='font-size:16.0pt;line-height:150%;font-family:宋体'>{{ format_today }} <span
+lang=EN-US><o:p></o:p></span></span>
+    </p>
+
+    <p class=MsoNormal align=center style='text-align:center;line-height:200%'><span lang=EN-US style='font-family:宋体;mso-hansi-font-family:Garamond;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal><span lang=EN-US style='mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑页面</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
+    <script src="../static/layui/layui.js"></script>
+{#    <script src="../static/layui/lay/modules/laydate.js"></script>#}
+
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+    <legend>请您根据学生情况进行修改</legend>
+</fieldset>
+
+<div class="layui-collapse" lay-filter="test">
+{% if name.zt == '复学' %}
+    <div class="layui-colla-item">
+{#        <h2 class="layui-colla-title">复学类申请</h2>#}
+{#        <div class="layui-colla-content">#}
+            <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                <legend>复学类申请</legend>
+                <div class="layui-field-box">
+
+                    <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                            style="display: none">{{ form.zt(value='复学') }}</p>
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的院系</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的班级</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入院系</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.campus(class="layui-input",placeholder="请输入拟转入的院系") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入专业</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.discipline(class="layui-input",placeholder="请输入拟转入的专业") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入班级</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.code(class="layui-input",placeholder="例如：5") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">申请原因</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.reason(placeholder="请输入您办理此事项的原因",class="layui-textarea") }}
+                                        {#						 {{ form.reason(placeholder="请输入您办理此事项的原因",class="layui-textarea") }}#}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                {{ form.Submit(class="layui-btn") }}
+
+                            </div>
+                        </div>
+                    </form>
+
+            </fieldset>
+        </div>
+    </div>
+{% endif %}
+{% if name.zt == '转专业' %}
+    <div class="layui-colla-item">
+{#        <h2 class="layui-colla-title">转专业申请</h2>#}
+{#        <div class="layui-colla-content">#}
+
+            <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                <legend>转专业申请</legend>
+                <div class="layui-field-box">
+
+                    <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                            style="display: none">{{ form.zt(value='转专业') }}</p>
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的院系</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的班级</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">原宿舍号</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.dom_dorm(class="layui-input",placeholder="例如：5") }}
+                                                        {#						 <input type="text" class="layui-input" placeholder="请输入宿舍号(限制三位)">#}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入校区</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.school(class="layui-select",placeholder="请输入拟转入的校区") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入院系</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.campus(class="layui-input",placeholder="请输入拟转入的院系") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入专业</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.discipline(class="layui-input",placeholder="请输入拟转入的专业") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转入班级</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.identity(class="layui-input",placeholder="例如：5") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转宿舍楼</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.dom_built(class="layui-input",placeholder="例如：5") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">拟转宿舍号</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.dom_campus(class="layui-input",placeholder="例如：5") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">申请原因</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.reason(placeholder="请输入您办理此事项的原因",class="layui-textarea") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button type="reset" class="layui-btn layui-btn-primary">
+                                                                重置
+                                </button>
+                                {{ form.Submit(class="layui-btn") }}
+                            </div>
+                        </div>
+                    </form>
+            </fieldset>
+
+        </div>
+    </div>
+{% endif %}
+{% if name.zt == '休学' %}
+    <div class="layui-colla-item">
+{#        <h2 class="layui-colla-title">休学类申请</h2>#}
+{#        <div class="layui-colla-content">#}
+
+            <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                <legend>休学类申请</legend>
+                <div class="layui-field-box">
+
+                    <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                            style="display: none">{{ form.zt(value='休学') }}</p>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                <div class="layui-input-inline">
+                                    {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    {#					 {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}#}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="layui-form-item">
+                                  <div class="layui-inline">
+                              <label class="layui-form-label" align="center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+                              <div class="layui-input-inline">
+                                <input type="radio" name="sex" value="男" title="男" checked="checked">
+                                <input type="radio" name="sex" value="女" title="女">
+                              </div>
+                            </div>
+                              </div> -->
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的院系</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的班级</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">联系方式</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.per_tel(class="layui-input",placeholder="请输入个人联系方式") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="layui-form">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">联系方式</label>
+                                            <div class="layui-input-inline">
+                                                {{ form.home_tel(class="layui-input",placeholder="请输入家庭联系方式") }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <!-- 待做：此处需做限制字符处理 -->
+                                    <div class="layui-form">
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">通讯地址</label>
+                                                <div class="layui-input-inline">
+                                                    {{ form.home_address(class="layui-input",placeholder="请输入您的联系地址") }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="layui-form">
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">申请原因</label>
+                                                    <div class="layui-input-inline">
+                                                        {{ form.reason(placeholder="请输入您申请休学的原因",class="layui-textarea") }}
+                                                        {#									 <textarea placeholder="请输入您申请休学的原因" class="layui-textarea"></textarea>#}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="layui-form-item">
+                                                <div class="layui-input-block">
+                                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+                                                    {{ form.Submit(class="layui-btn") }}
+
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+        </div>
+        {% endif %}
+{% if name.zt == '退学' %}
+        <div class="layui-colla-item">
+{#            <h2 class="layui-colla-title">退学类申请</h2>#}
+{#            <div class="layui-colla-content">#}
+
+                <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                    <legend>退学类申请</legend>
+                    <div class="layui-field-box">
+
+                        <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                                style="display: none">{{ form.zt(value='退学') }}</p>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的院系</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的班级</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="layui-form">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">联系方式</label>
+                                            <div class="layui-input-inline">
+                                                {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="layui-form">
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">联系方式</label>
+                                                <div class="layui-input-inline">
+                                                    {{ form.home_tel(class="layui-input",placeholder="请输入家庭联系方式") }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <div class="layui-form">
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">通讯地址</label>
+                                                    <div class="layui-input-inline">
+                                                        {{ form.per_tel(class="layui-input",placeholder="请输入您的联系地址") }}
+                                                        {#									 <input type="text" class="layui-input" placeholder="请输入您的联系地址">#}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                            <!-- 待做：此处需做限制字符处理 -->
+                                            <div class="layui-form">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">申请原因</label>
+                                                        <div class="layui-input-inline">
+                                                            {{ form.reason(placeholder="请输入您申请退学的原因",class="layui-textarea") }}
+                                                            {#	    						 <textarea placeholder="请输入您申请退学的原因" class="layui-textarea"></textarea>#}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                                <div class="layui-form-item">
+                                                    <div class="layui-input-block">
+                                                        <button type="reset" class="layui-btn layui-btn-primary">重置
+                                                        </button>
+
+                                                        {{ form.Submit(class="layui-btn") }}
+
+                                                    </div>
+                                                </div>
+                        </form>
+                    </div>
+                </fieldset>
+
+            </div>
+        </div>
+        {% endif %}
+{% if name.zt == '学历' %}
+        <div class="layui-colla-item">
+{#            <h2 class="layui-colla-title">学历证明申请</h2>#}
+{#            <div class="layui-colla-content">#}
+
+                <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                    <legend>学历证明申请</legend>
+                    <div class="layui-field-box">
+
+                        <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                                style="display: none">{{ form.zt(value='学历') }}</p>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form" style="display: none">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的院系</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form" style="display: none">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的班级</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">所属校区</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.school(class="layui-select") }}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                    <div class="layui-form" style="margin-top: 12px;">
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">所在院系</label>
+                                                <div class="layui-input-inline">
+                                                    {{ form.campus(class="layui-input",placeholder="请输入您所在的院系") }}
+                                                    {#							 <input type="text" class="layui-input" placeholder="请输入您所在的院系">#}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <div class="layui-form">
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">所在专业</label>
+                                                    <div class="layui-input-inline">
+                                                        {{ form.discipline(class="layui-input",placeholder="请输入您所在的专业") }}
+                                                        {#								 <input type="text" class="layui-input" placeholder="请输入您所在的专业">#}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;制</label>
+                                                    <div class="layui-input-inline">
+                                                        {{ form.leng_school(class="layui-select") }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                            <div class="layui-form-item">
+							<div class="layui-inline">
+							  <label class="layui-form-label">开始时间</label>
+							  <div class="layui-input-inline">
+                                  {{ form.school_sttime(class="layui-input",type="date",value="年/月/日",min="1900-09-16",max="2100-09-26") }}
+{#								 <input type="text" class="layui-input" placeholder="请输入您所在的专业">#}
+							  </div>
+							</div>
+							</div>
+
+                                <div class="layui-form-item">
+							<div class="layui-inline">
+							  <label class="layui-form-label">截止时间</label>
+							  <div class="layui-input-inline">
+                                  {{ form.school_endtime(class="layui-input",type="date",value="年/月/日",min="1900-09-16",max="2100-09-26") }}
+{#								 <input type="text" class="layui-input" placeholder="请输入您所在的专业">type="text" class="layui-input" id="test17" placeholder="年/月/日"#}
+							  </div>
+							</div>
+							</div>
+
+                                                <div class="layui-form" style="margin-top: 12px;">
+                                                    <div class="layui-form-item">
+                                                        <div class="layui-inline">
+                                                            <label class="layui-form-label">证书编号</label>
+                                                            <div class="layui-input-inline">
+                                                                {{ form.code(class="layui-input",placeholder="请输入您的证书编号") }}
+{#                                                                <input type="text" class="layui-input"#}
+{#                                                                       placeholder="请输入您的证书编号">#}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    <div class="layui-form">
+                                                        <div class="layui-form-item">
+                                                            <div class="layui-inline">
+                                                                <label class="layui-form-label">申请原因</label>
+                                                                <div class="layui-input-inline">
+                                                                    {{ form.reason(placeholder="请输入您申请学历证明的原因",class="layui-textarea") }}
+                                                                    {#										 <textarea placeholder="请输入您申请学历证明的原因" class="layui-textarea"></textarea>#}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                        <div class="layui-form-item">
+                                                            <div class="layui-input-block">
+                                                                <button type="reset"
+                                                                        class="layui-btn layui-btn-primary">重置
+                                                                </button>
+                                                                {{ form.Submit(class="layui-btn") }}
+
+                                                            </div>
+                                                        </div>
+                        </form>
+                    </div>
+                </fieldset>
+            </div>
+        {% endif %}
+{% if name.zt == '保留学籍' %}
+        <div class="layui-colla-item">
+{#            <h2 class="layui-colla-title">保留学籍申请</h2>#}
+{#            <div class="layui-colla-content">#}
+
+                <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                    <legend>保留学籍申请</legend>
+                    <div class="layui-field-box">
+
+                        <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                                style="display: none">{{ form.zt(value='保留学籍') }}</p>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form" style="display: none">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的院系</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form" style="display: none">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">学生的班级</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                <div class="layui-form">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">联系方式</label>
+                                            <div class="layui-input-inline">
+                                                {{ form.per_tel(class="layui-input",placeholder='请输入您的个人方式') }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="layui-form">
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">联系方式</label>
+                                                <div class="layui-input-inline">
+                                                    {{ form.home_tel(class="layui-input",placeholder="请输入家庭联系方式") }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <div class="layui-form">
+                                            <div class="layui-form-item">
+                                                <div class="layui-inline">
+                                                    <label class="layui-form-label">联系地址</label>
+                                                    <div class="layui-input-inline">
+                                                        {{ form.home_address(class="layui-input",placeholder="请输入您的联系地址") }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                            <div class="layui-form">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">截止时间</label>
+                                                        <div class="layui-input-inline">
+                                                            {{ form.school_endtime(class="layui-input",type="date",value="年/月/日",min="1900-09-16",max="2100-09-26") }}
+                                                            {#								 <textarea placeholder="请输入您申请保留学籍的原因" class="layui-textarea"></textarea>#}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="layui-form">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-inline">
+                                                        <label class="layui-form-label">申请原因</label>
+                                                        <div class="layui-input-inline">
+                                                            {{ form.reason(placeholder="请输入您申请保留学籍的原因",class="layui-textarea") }}
+                                                            {#								 <textarea placeholder="请输入您申请保留学籍的原因" class="layui-textarea"></textarea>#}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                <div class="layui-form-item">
+                                                    <div class="layui-input-block">
+                                                        <button type="reset" class="layui-btn layui-btn-primary">重置
+                                                        </button>
+                                                        {{ form.Submit(class="layui-btn") }}
+
+                                                    </div>
+                                                </div>
+                        </form>
+                    </div>
+                </fieldset>
+            </div>
+        {% endif %}
+{% if name.zt == '注销' %}
+        <div class="layui-colla-item">
+{#            <h2 class="layui-colla-title">注销学籍申请</h2>#}
+{#            <div class="layui-colla-content">#}
+
+                <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                    <legend>注销学籍申请</legend>
+                    <div class="layui-field-box">
+
+                        <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post"><p
+                                style="display: none">{{ form.zt(value='注销') }}</p>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的院系</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的班级</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="layui-form">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">申请原因</label>
+                                            <div class="layui-input-inline">
+                                                {{ form.reason(placeholder="请输入您申请注销学籍的原因",class="layui-textarea") }}
+                                                {#		  		 <textarea placeholder="请输入您申请注销学籍的原因" class="layui-textarea"></textarea>#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                            {{ form.Submit(class="layui-btn") }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </fieldset>
+
+            </div>
+        {% endif %}
+{% if name.zt == '学籍' %}
+        <div class="layui-colla-item">
+{#            <h2 class="layui-colla-title">在校生学籍证明申请</h2>#}
+{#            <div class="layui-colla-content">#}
+
+                <fieldset class="layui-elem-field" style="border-radius: 10px;" align="center">
+                    <legend>在校生学籍证明申请</legend>
+                    <div class="layui-field-box">
+
+                        <form class="layui-form layui-form-pane" action="{{ url_for('edit_student',name_id=name.id) }}" method="post">
+                            <p style="display: none">{{ form.zt(value='学籍') }}</p>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                                    <div class="layui-input-inline">
+                                        {{ form.xm(class="layui-input",placeholder='请输入您的姓名') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xh(class="layui-input",placeholder="请输入您的学号") }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">身份证号</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.identity(class="layui-input",placeholder="请输入您的身份证号") }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;制</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.leng_school(class="layui-select") }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <p></p>
+
+
+                                     <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的院系</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.xy(class="layui-input",placeholder="请输入学生的院系") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">学生的班级</label>
+                                        <div class="layui-input-inline">
+                                            {{ form.bj(class="layui-input",placeholder="请输入学生的班级") }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                    <div class="layui-form" style="margin-top: 12px;">
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">申请原因</label>
+                                                <div class="layui-input-inline">
+                                                    {{ form.reason(placeholder="请输入您申请在校生学籍证明的原因",class="layui-textarea") }}
+                                                    {#				  		 <textarea placeholder="请输入您申请在校生学籍证明的原因" class="layui-textarea"></textarea>#}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="layui-form-item">
+                                            <div class="layui-input-block">
+                                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+                                                {{ form.Submit(class="layui-btn") }}
+                                            </div>
+                                        </div>
+                        </form>
+
+                </fieldset>
+
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <script>
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#test1' //指定元素
+            });
+        });
+    </script>
+
+
+    <script>
+        layui.use(['element', 'layer'], function () {
+            var element = layui.element;
+            var layer = layui.layer;
+
+            //监听折叠
+            element.on('collapse(test)', function (data) {
+                // layer.msg('展开状态：'+ data.show);
+            });
+        });
+    </script>
+
+</body>
+</html>
