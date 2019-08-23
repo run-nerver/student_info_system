@@ -1,8 +1,8 @@
 # 学生信息打印辅助系统
 
 学生在校期间避免不了要和各种证明打交道，比如学籍证明、转专业申请、休学申请、退学申请等等。此类业务一般流程都是学生去找老师告知要办的证明类型，然后老师帮助学生在电子版证明表格中填入各种信息（也有可能学生自己写），然后再打印出来。繁琐的步骤让老师和学生都叫苦不迭，于是很多学校都用上了学生信息自助打印机，像下面这种：
-![http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA1.jpg]()
-![http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA2.png]()
+![http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA1.jpg](http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA1.jpg)
+![http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA2.png](http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA2.png)
 学生自行去机器上就可以打印证明了，可是这种解决方案弊端也很明显：
 1、价格太贵，一般学校都不会出资购买
 2、就算购买，一般也只会在职能部门购置一台，无法大面积服务全体学生
@@ -16,7 +16,7 @@
 3、可根据各种条件查询所有历史业务，方便统计
 4、类似退学、休学等需要所负责老师先在后台确认，方可继续打印，防止出现一些意外情况
 5、更多功能后续开发中...
-![http://pic.printyun.cn/stu-2.png]()
+![http://pic.printyun.cn/stu-2.png](http://pic.printyun.cn/stu-2.png)
 
 ## 部署
 说明：因为目前未考虑到大面积使用项目情况，还未添加比较方便的初始化数据库功能，需要暂时按照下面方法初始化数据库，后续会增加更加的便捷的初始化功能。
@@ -86,6 +86,6 @@ docker container run -d -p 8000:8000 --name student_info_system student_info_sys
 
 
 ## 部分截图
-![http://pic.printyun.cn/stu-1.png]()
-![http://pic.printyun.cn/stu-3.png]()
-![http://pic.printyun.cn/stu-4.png]()
+![http://pic.printyun.cn/stu-1.png](http://pic.printyun.cn/stu-1.png)
+![http://pic.printyun.cn/stu-3.png](http://pic.printyun.cn/stu-3.png)
+![http://pic.printyun.cn/stu-4.png](http://pic.printyun.cn/stu-4.png)
