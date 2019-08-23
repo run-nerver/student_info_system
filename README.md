@@ -19,8 +19,8 @@
 ![http://pic.printyun.cn/stu-2.png](http://pic.printyun.cn/stu-2.png)
 
 ## 部署
-说明：因为目前未考虑到大面积使用项目情况，还未添加比较方便的初始化数据库功能，需要暂时按照下面方法初始化数据库，后续会增加更加的便捷的初始化功能。
-###1、本机测试
+说明：因为目前未考虑到大面积使用项目情况，还未添加比较方便的初始化数据库功能，需要暂时按照下面方法初始化数据库，后续会增加更加的便捷的初始化功能。  
+###1、本机测试  
 1、安装pipenv
    ```python
    pip install pipenv
@@ -63,7 +63,7 @@ flask run
 上传根目录test.xlsx到数据库即可使用(此文件可以根据实际情况增加信息，但是不要更改里面的列位置)
 
 ### 2、Docker部署  
-也可以只配置数据库信息（只做上面4、5步），然后通过Docker方式进行部署。dockerfile仅做参考，可以自行修改。
+也可以只配置数据库信息（只做上面4、5步），然后通过Docker方式进行部署。dockerfile仅做参考，可以自行修改。  
 1、建立image  
 ```
 docker image build -t student_info_system .
