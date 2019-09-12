@@ -1,16 +1,16 @@
-from huojingyuan import app, login_manager
-from flask import render_template, redirect, flash, url_for, request, current_app, abort, jsonify
-from huojingyuan.forms import NameForm, LoginForm, QueryForm, DeleteForm, EditForm, UploadForm, EditTeacher
+from huojingyuan import app, login_manager, limiter,csrf
+from flask import render_template, redirect, flash, url_for, request, current_app, abort, jsonify, render_template_string
+from huojingyuan.forms import LoginForm, QueryForm, DeleteForm, EditForm, UploadForm, EditTeacher, FX, ZZY, XX, TXL, XLZM, BLXJS, ZXXJ, ZXSXJ
 from huojingyuan.models import Note, Note_yet, db, Admin
 from flask_login import login_user, current_user, login_required, logout_user
 from datetime import date
 from huojingyuan.fun import excel, random_filename
-import os,click
-import string, json
+import os,click, string, json, uuid
 
 
 
 @app.route('/xueli/<int:name_id>')
+@limiter.exempt
 @login_required
 def xueli(name_id):
     today = date.today()
@@ -21,6 +21,7 @@ def xueli(name_id):
 
 # 2学籍证明
 @app.route('/xueji/<int:name_id>')
+@limiter.exempt
 @login_required
 def xueji(name_id):
     today = date.today()
@@ -31,6 +32,7 @@ def xueji(name_id):
 
 # 3注销学籍
 @app.route('/zhuxiaoxueji/<int:name_id>')
+@limiter.exempt
 @login_required
 def zhuxiaoxueji(name_id):
     name = Note_yet.query.get(name_id)
@@ -39,6 +41,7 @@ def zhuxiaoxueji(name_id):
 
 # 4保留学籍离校清单
 @app.route('/xuejilixiaoqingdan/<int:name_id>')
+@limiter.exempt
 @login_required
 def xuejilixiaoqingdan(name_id):
     name = Note_yet.query.get(name_id)
@@ -51,6 +54,7 @@ def xuejilixiaoqingdan(name_id):
 
 # 5保留学籍申请表
 @app.route('/xuejishenqingbiao/<int:name_id>')
+@limiter.exempt
 @login_required
 def xuejishenqingbiao(name_id):
     name = Note_yet.query.get(name_id)
@@ -63,6 +67,7 @@ def xuejishenqingbiao(name_id):
 
 # 6复学申请
 @app.route('/fuxueshenqing/<int:name_id>')
+@limiter.exempt
 @login_required
 def fuxueshenqing(name_id):
     name = Note_yet.query.get(name_id)
@@ -74,6 +79,7 @@ def fuxueshenqing(name_id):
 
 # 7复学入班通知书
 @app.route('/fuxueruban/<int:name_id>')
+@limiter.exempt
 @login_required
 def fuxueruban(name_id):
     name = Note_yet.query.get(name_id)
@@ -84,6 +90,7 @@ def fuxueruban(name_id):
 
 # 8退学申请
 @app.route('/tuixueshenqing/<int:name_id>')
+@limiter.exempt
 @login_required
 def tuixueshenqing(name_id):
     name = Note_yet.query.get(name_id)
@@ -94,6 +101,7 @@ def tuixueshenqing(name_id):
 
 # 9退学离校清单
 @app.route('/tuixuelixiaoqingdan/<int:name_id>')
+@limiter.exempt
 @login_required
 def tuixue_lixiaoqingdan(name_id):
     name = Note_yet.query.get(name_id)
@@ -107,6 +115,7 @@ def tuixue_lixiaoqingdan(name_id):
 
 # 10退学通知书
 @app.route('/tuixuetongzhi/<int:name_id>')
+@limiter.exempt
 @login_required
 def tuixue_tongzhi(name_id):
     name = Note_yet.query.get(name_id)
@@ -118,6 +127,7 @@ def tuixue_tongzhi(name_id):
 
 # 11休学申请
 @app.route('/xiuxueshenqing/<int:name_id>')
+@limiter.exempt
 @login_required
 def xiuxueshenqing(name_id):
     name = Note_yet.query.get(name_id)
@@ -128,6 +138,7 @@ def xiuxueshenqing(name_id):
 
 # 12休学离校清单
 @app.route('/xiuxuelixiaoqingdan/<int:name_id>')
+@limiter.exempt
 @login_required
 def xiuxuelixiaoqingdan(name_id):
     name = Note_yet.query.get(name_id)
@@ -136,6 +147,7 @@ def xiuxuelixiaoqingdan(name_id):
 
 # 13休学通知书
 @app.route('/xiuxuetongzhi/<int:name_id>')
+@limiter.exempt
 @login_required
 def xiuxuetongzhi(name_id):
     name = Note_yet.query.get(name_id)
@@ -147,6 +159,7 @@ def xiuxuetongzhi(name_id):
 
 # 14转专业申请
 @app.route('/zhuanyeshenqing/<int:name_id>')
+@limiter.exempt
 @login_required
 def zhuanyeshenqing(name_id):
     name = Note_yet.query.get(name_id)
@@ -159,6 +172,7 @@ def zhuanyeshenqing(name_id):
 
 # 15转专业入班
 @app.route('/zhuanyeruban/<int:name_id>')
+@limiter.exempt
 @login_required
 def zhuanyeruban(name_id):
     name = Note_yet.query.get(name_id)
@@ -171,6 +185,7 @@ def zhuanyeruban(name_id):
 
 # 保留学籍通知书 ----------------------------------------------------------
 @app.route('/xuejitongzhishu/<int:name_id>')
+@limiter.exempt
 @login_required
 def xuejitongzhishu(name_id):
     name = Note_yet.query.get(name_id)
@@ -182,6 +197,7 @@ def xuejitongzhishu(name_id):
 
 #旷课记录表
 @app.route('/kuangkejilubiao/<int:name_id>')
+@limiter.exempt
 @login_required
 def kuangkejilubiao(name_id):
     name = Note_yet.query.get(name_id)
@@ -193,6 +209,7 @@ def kuangkejilubiao(name_id):
 
 #旷课建议表
 @app.route('/kuangkejianyibiao/<int:name_id>')
+@limiter.exempt
 @login_required
 def kuangkejianyibiao(name_id):
     name = Note_yet.query.get(name_id)
@@ -204,6 +221,7 @@ def kuangkejianyibiao(name_id):
 
 #旷课处分详情表
 @app.route('/kuangkechufenxiangqing/<int:name_id>')
+@limiter.exempt
 @login_required
 def kuangkechufenxiangqing(name_id):
     name = Note_yet.query.get(name_id)
@@ -215,11 +233,13 @@ def kuangkechufenxiangqing(name_id):
 
 
 @app.errorhandler(404)
+@limiter.exempt
 def miss(error):
     return render_template('404.html'),404
 
 
 @app.errorhandler(500)
+@limiter.exempt
 def type(error):
     return render_template('500.html'),500
 
@@ -228,6 +248,7 @@ def type(error):
 
 
 @app.route("/logout")
+@limiter.exempt
 @login_required
 def logout():
     logout_user()
@@ -237,6 +258,8 @@ def logout():
 
 
 @app.route('/delete/<int:name_id>', methods=['POST'])
+@csrf.exempt
+@limiter.exempt
 @login_required
 def delete_stu(name_id):
     if request.method == 'POST':
@@ -251,6 +274,7 @@ def delete_stu(name_id):
 
 # 教师确定
 @app.route('/confirm_tx/<int:name_id>')
+@limiter.exempt
 @login_required
 def confirm_tx(name_id):
     # 获取退学、休学申请学生name，将其在Note表和Note_yet表status设置为退学或休学状态
@@ -265,6 +289,7 @@ def confirm_tx(name_id):
 
 
 @app.route('/edit/<int:name_id>', methods=[ 'GET','POST'])
+@limiter.exempt
 @login_required
 def edit_student(name_id):
     form = EditForm()
@@ -344,81 +369,23 @@ def edit_student(name_id):
 
 # 管理员上传数据
 @app.route('/upload', methods=['GET', 'POST'])
+@limiter.exempt
 @login_required
 def upload():
     form = UploadForm()
     if form.validate_on_submit():
-        # f = request.files.get('file')
         f = form.file.data
         basepath = os.path.dirname(__file__)
         upload_path = os.path.join(basepath, 'uploads', random_filename(f.filename))
         f.save(upload_path)
         a = os.path.join(upload_path)
-        # f.save(os.path.join(app.root_path, 'uploads'))
         excel(a)
         return '上传成功'
     return render_template('upload.html', form=form)
 
 
-
-@app.route("/front", methods=['GET', 'POST'])
-def front():
-    # name = None
-    # stu_num = None
-    form = NameForm()
-    today = date.today()
-    format_today = today.strftime('%Y{y}%m{m}').format(y='年 ', m='月')
-    if request.method == 'POST':
-        name = form.name.data
-        stu_num = form.stu_num.data
-        matter = form.matter.data
-        reason = form.reason.data
-
-        school_sttime = form.school_sttime.data             #入校时间
-        school_endtime = form.school_endtime.data or today           #离校时间
-        home_address = form.home_address.data               #家庭住址
-        home_tel = form.home_tel.data                       #家庭联系方式
-        per_tel = form.per_tel.data                         #个人联系方式
-        dom_campus = form.dom_campus.data                   #原校区
-        dom_built = form.dom_built.data                     #原楼号
-        dom_dorm = form.dom_dorm.data                       #原宿舍号
-        school = form.school.data                           #院校
-        campus = form.campus.data                           #院系
-        code = form.code.data                               #证书编号
-        sex = form.sex.data                                 #性别
-        identity = form.identity.data                       #身份证
-        leng_school = form.leng_school.data                 #学制
-        discipline = form.discipline.data                   #专业
-
-        userxh = Note.query.filter_by(xh=stu_num).first()      #调取学号进行查阅数据库
-        student = Note.query.filter_by(xm=name).first()
-        # if Note.query.filter(name.in_(Note.xm)):
-        if userxh and userxh.xm == name:  # 有业务逻辑错误
-            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
-                return '处于休学或退学状态，无法申请在校生学籍'
-            else:
-                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt=matter,
-                                        admin_id=userxh.admin_id, reason=reason, school_sttime=school_sttime,
-                                        school_endtime=school_endtime, home_address=home_address,
-                                        home_tel=home_tel, per_tel=per_tel, dom_dorm=dom_dorm, dom_campus=dom_campus,
-                                        dom_built=dom_built, school=school, campus=campus, code=code, sex=sex,
-                                        identity=identity, leng_school=leng_school, discipline=discipline)
-                db.session.add(student_info)
-                db.session.commit()
-                # flash("成功申请，请找老师打印")
-                flash("提交成功，请通知老师在系统进行下一步工作")
-                return redirect(url_for('front'))
-
-        # else:
-        flash("账号或学号不正确，请重新输入")
-        return redirect(url_for('front'))
-
-    return render_template('front.html', form=form)
-
-
-
-# 教师登录入口
 @app.route("/admin_login", methods=['GET', 'POST'])
+@limiter.exempt
 def admin_login():
 
     form = LoginForm()
@@ -437,51 +404,8 @@ def admin_login():
 
 
 
-# 查询
-@app.route("/query", methods=['GET','POST'], defaults={'page': 1})
-@app.route('/page/<int:page>')
-@login_required
-def query(page):
-    form = QueryForm()
-    delete_form = DeleteForm()
-    starttime = request.args.get('datetimestart')
-    endtime = request.args.get('datetimeend')
-    matter = request.args.get('matter')
-    name = request.args.get('name')
-    department = request.args.get('department')
-    if starttime == '' and name == '' and endtime == '' and matter == 'info' and (
-            department == 'admin' or department is None):
-        return redirect('all')
-
-    if current_user.xy == 'admin':
-        pagination = Note_yet.query_all(name, starttime, endtime, matter, department, page)
-        names = pagination.items
-        return render_template('new_query.html', names=names, form=form, pagination=pagination, delete_form=delete_form)
-    else:
-        pagination = Admin.query_all(name, starttime, endtime, matter, page)
-        names = pagination.items
-        return render_template('new_query.html', names=names, form=form, pagination=pagination, delete_form=delete_form)
-
-
-# 查看当日办理人员
-@app.route("/indexs")
-# @app.route('/page/<int:page>')
-@login_required
-def index(page=1):
-    today = date.today()
-    form = NameForm()
-    # format_today = today.strftime('%y-%m-%d')
-    if current_user.xy == 'admin':
-        names = Note_yet.query.all()
-        # return render_template('index.html', names=names,format_today=format_today)
-        return render_template('new_index.html', names=names, today=today, form=form)
-    else:
-        names = current_user.articles
-        # return render_template('index.html', names=names,format_today=format_today)
-        return render_template('new_index.html', names=names, today=today, form=form,
-                               )
-
 @app.route('/edit_teacher',methods=['GET','POST'])
+@limiter.exempt
 @login_required
 def edit_teacher():
     form = EditTeacher()
@@ -508,6 +432,7 @@ def edit_teacher():
 
 
 @app.route("/query_json", methods=['GET','POST'])
+@limiter.exempt
 @login_required
 def query_json():
     if request.method == 'POST':
@@ -552,36 +477,294 @@ def query_json():
                                msg= '',
                                code= 0)
         else:
-            data = Note_yet.query.filter(Note_yet.xy == current_user.xy)
-            if name != '':
-                data = data.filter(Note_yet.xm.like('%' + name + '%'))
-            if starttime != '' and endtime == '':
-                data = data.filter(Note_yet.created_date == starttime)
-            elif starttime != '' and endtime != '':
-                data = data.filter(Note_yet.created_date.between(starttime, endtime))
-            if matter != 'info':
-                data = data.filter(Note_yet.zt == matter)
+            if starttime == '' and name == '' and endtime == '' and matter == 'info' and (
+                    department == 'admin' or department is None):
+                data = Note_yet.query
+                num = data.count()
+                item = data.paginate(page=page,per_page=per_page).items
+                return jsonify(data=[i.to_json() for i in item],
+                               count=num,
+                               msg='',
+                               code=0)
             else:
-                pass
-            num = data.count()
-            item = data.paginate(page=page, per_page=per_page).items
-            return jsonify(data=[i.to_json() for i in item],
-                           count=num,
-                           msg='',
-                           code=0)
+                data = Note_yet.query.filter(Note_yet.xy == current_user.xy)
+                if name != '':
+                    data = data.filter(Note_yet.xm.like('%' + name + '%'))
+                if starttime != '' and endtime == '':
+                    data = data.filter(Note_yet.created_date == starttime)
+                elif starttime != '' and endtime != '':
+                    data = data.filter(Note_yet.created_date.between(starttime, endtime))
+                if matter != 'info':
+                    data = data.filter(Note_yet.zt == matter)
+                else:
+                    pass
+                num = data.count()
+                item = data.paginate(page=page, per_page=per_page).items
+                return jsonify(data=[i.to_json() for i in item],
+                               count=num,
+                               msg='',
+                               code=0)
 
+
+@app.route("/front", methods=['GET', 'POST'])
+@limiter.limit("10000/day")
+def front():
+    FX_FORM = FX()
+    ZZY_FORM =ZZY()
+    XX_FORM = XX()
+    TXL_FORM = TXL()
+    XLZM_FORM = XLZM()
+    BLXJS_FORM = BLXJS()
+    ZXXJ_FORM = ZXXJ()
+    ZXSXJ_FORM = ZXSXJ()
+
+    today = date.today()
+
+    if FX_FORM.Submit_FX.data and FX_FORM.validate():
+        name = FX_FORM.name.data
+        stu_num = FX_FORM.stu_num.data
+        matter = '复学'
+        reason = FX_FORM.reason.data
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='复学',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+
+    if ZZY_FORM.Submit_ZZU.data and ZZY_FORM.validate():
+        name = ZZY_FORM.name.data
+        stu_num = ZZY_FORM.stu_num.data
+        campus = ZZY_FORM.campus.data
+        reason = ZZY_FORM.reason.data
+        dom_dorm = ZZY_FORM.dom_dorm.data
+        discipline = ZZY_FORM.discipline.data
+        matter='转专业'
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='转专业',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '',
+                                        discipline=discipline if discipline is not None else '',
+                                        campus=campus if campus is not None else '',
+                                        dom_dorm=dom_dorm if dom_dorm is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+
+    if XX_FORM.Submit_XX.data and XX_FORM.validate():
+        name = XX_FORM.name.data
+        stu_num = XX_FORM.stu_num.data
+        matter = '休学'
+        reason = XX_FORM.reason.data
+        per_tel = XX_FORM.per_tel.data
+        home_address = XX_FORM.home_address.data
+        home_tel = XX_FORM.home_tel.data
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='休学',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '',
+                                        home_address=home_address if home_address is not None else '',
+                                        home_tel=home_tel if home_tel is not None else '',
+                                        per_tel=per_tel if per_tel is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+    if TXL_FORM.Submit_TXL.data and TXL_FORM.validate():
+        name = TXL_FORM.name.data
+        stu_num = TXL_FORM.stu_num.data
+        matter = '退学'
+        reason = TXL_FORM.reason.data
+        per_tel = TXL_FORM.per_tel.data
+        home_address = TXL_FORM.home_address.data
+        home_tel = TXL_FORM.home_tel.data
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='退学',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '',
+                                        home_address=home_address if home_address is not None else '',
+                                        home_tel=home_tel if home_tel is not None else '',
+                                        per_tel=per_tel if per_tel is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+    if XLZM_FORM.Submit_XLZM.data and XLZM_FORM.validate():
+        name = XLZM_FORM.name.data
+        stu_num = XLZM_FORM.stu_num.data
+        matter = '学历'
+        reason = XLZM_FORM.reason.data
+        school_sttime = XLZM_FORM.school_sttime.data
+        school_endtime = XLZM_FORM.school_endtime.data
+        school = XLZM_FORM.school.data
+        campus = XLZM_FORM.campus.data
+        discipline = XLZM_FORM.discipline.data
+        code = XLZM_FORM.code.data
+        leng_school = XLZM_FORM.leng_school.data
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='学历',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '',
+                                        school_sttime=school_sttime if school_sttime is not None else '',
+                                        school_endtime=school_endtime if school_endtime is not None else today,
+                                        school=school if school is not None else '',
+                                        campus=campus if campus is not None else '',
+                                        code=code if code is not None else '',
+                                        leng_school=leng_school if leng_school is not None else '',
+                                        discipline=discipline if discipline is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+    if BLXJS_FORM.Submit_BLXJS.data and BLXJS_FORM.validate():
+        name = BLXJS_FORM.name.data
+        stu_num = BLXJS_FORM.stu_num.data
+        matter = '保留学籍'
+        reason = BLXJS_FORM.reason.data
+
+        school_endtime = BLXJS_FORM.school_endtime.data
+        per_tel = BLXJS_FORM.per_tel.data
+        home_address = BLXJS_FORM.home_address.data
+        home_tel = BLXJS_FORM.home_tel.data
+
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='保留学籍',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '',
+                                        school_endtime=school_endtime if school_endtime is not None else today,
+                                        home_address=home_address if home_address is not None else '',
+                                        home_tel=home_tel if home_tel is not None else '',
+                                        per_tel=per_tel if per_tel is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+    if ZXXJ_FORM.Submit_ZXXJ.data and ZXXJ_FORM.validate():
+        name = ZXXJ_FORM.name.data
+        stu_num = ZXXJ_FORM.stu_num.data
+        matter = '注销'
+        reason = ZXXJ_FORM.reason.data
+
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='注销',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+    if ZXSXJ_FORM.Submit_ZXSXJ.data and ZXSXJ_FORM.validate():
+        name = ZXSXJ_FORM.name.data
+        stu_num = ZXSXJ_FORM.stu_num.data
+        matter = '学籍'
+        reason = ZXSXJ_FORM.reason.data
+        identity = ZXSXJ_FORM.identity.data
+        leng_school = ZXSXJ_FORM.leng_school.data
+        userxh = Note.query.filter_by(xh=stu_num).first()  # 调取学号进行查阅数据库
+        student = Note.query.filter_by(xm=name).first()
+        # if Note.query.filter(name.in_(Note.xm)):
+        if userxh and userxh.xm == name:  # 有业务逻辑错误
+            if (student.status == '退学' or student.status == '休学') and matter == '学籍':
+                return '处于休学或退学状态，无法申请在校生学籍'
+            else:
+                student_info = Note_yet(xh=userxh.xh, xm=userxh.xm, xy=userxh.xy, bj=userxh.bj, zt='学籍',
+                                        admin_id=userxh.admin_id, reason=reason if reason is not None else '',
+                                        identity=identity if identity is not None else '',
+                                        leng_school=leng_school if leng_school is not None else '')
+                db.session.add(student_info)
+                db.session.commit()
+                # flash("成功申请，请找老师打印")
+                flash("提交成功，请通知老师在系统进行下一步工作")
+            return redirect(url_for('front'))
+
+        else:
+            flash("账号或学号不正确，请重新输入")
+            return redirect(url_for('front'))
+    return render_template('front.html', FX_FORM=FX_FORM, ZZY_FORM = ZZY_FORM, XX_FORM = XX_FORM, TXL_FORM = TXL_FORM,
+                           XLZM_FORM = XLZM_FORM, BLXJS_FORM = BLXJS_FORM, ZXXJ_FORM = ZXXJ_FORM, ZXSXJ_FORM = ZXSXJ_FORM)
 
 
 #查看所有
 @app.route("/all", methods=['GET','POST'])
+@limiter.exempt
 @login_required
 def new_all():
     today = date.today()
     form = QueryForm()
     delete_form = DeleteForm()
     return render_template('new_layui_index.html', form=form, delete_form=delete_form, today=today)
-
-
 
 
 @app.cli.command()
