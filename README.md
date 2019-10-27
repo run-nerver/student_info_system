@@ -3,20 +3,20 @@
 更新内容：  
 1、大幅度重构代码，增加系统适用性  
 2、前端学生申请页面新增加小程序端，具体请看  
-[前端小程序版](https://github.com/tongxunkeji/students_info_system_weixin)
+[前端小程序版](https://github.com/tongxunkeji/students_info_system_weixin)  
 小程序端截图：  
 ![](http://pic.printyun.cn/小程序首页.png)
 ![](http://pic.printyun.cn/小程序学籍证明页.png)
 
 ## 2019.9.13 V1.1
-更新内容：
+更新内容：  
 1、修复部分安全问题  
 2、优化代码，提高运行速度  
 
 
 学生在校期间避免不了要和各种证明打交道，比如学籍证明、转专业申请、休学申请、退学申请等等。此类业务一般流程都是学生去找老师告知要办的证明类型，然后老师帮助学生在电子版证明表格中填入各种信息（也有可能学生自己写），然后再打印出来。繁琐的步骤让老师和学生都叫苦不迭，于是很多学校都用上了学生信息自助打印机，像下面这种：  
-![http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA1.jpg](http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA1.jpg)
-![http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA2.png](http://pic.printyun.cn/%E8%87%AA%E5%8A%A9%E6%89%93%E5%8D%B0%E6%9C%BA2.png)
+![](http://pic.printyun.cn/自助打印机1.jpg)
+![](http://pic.printyun.cn/自助打印机2.png)
 学生自行去机器上就可以打印证明了，可是这种解决方案弊端也很明显：  
 1、价格太贵，一般学校都不会出资购买  
 2、就算购买，一般也只会在职能部门购置一台，无法大面积服务全体学生  
@@ -70,7 +70,7 @@ docker image build -t student_info_system .
 ```
 docker container run -d -p 8000:8000 --name student_info_system student_info_system
 ```
-3、宿主机器打开http://127.0.0.1:8000/admin/login后台登录界面  
+3、宿主机器打开http://127.0.0.1:8000/admin/login  
 
 ***
 
