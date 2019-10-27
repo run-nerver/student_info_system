@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <form method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.csrf_token }}
+                {{ form.file(id="exampleInputFile") }}
+                {#    {{ form_field(form.file) }}#}
+                {{ form.submit(class="btn btn-default") }}
+            </div>
+        </form>
+
+
+{% endblock %}

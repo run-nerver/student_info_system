@@ -1,0 +1,79 @@
+{% extends 'matter_base.html' %}
+{% block content %}
+
+<input type="button" value="打印文章" onclick="a()">
+
+    <div id=print class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:22.0pt;font-family:宋体'><span
+style='mso-spacerun:yes'>     </span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:24.0pt;font-family:宋体'>证 明<span lang=EN-US><o:p></o:p></span></span></b></p>
+<br><br>
+
+
+<p class=MsoNormal style='margin-left:5.25pt;mso-para-margin-left:.5gd;
+text-indent:24.0pt;mso-char-indent-count:1.5;line-height:150%'><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>{{name.xm}}，{{ name.sex }}，于<span
+lang=EN-US></span><span lang=EN-US>{{ start_time[0:4] }}年9月</span>至<span lang=EN-US></span><span
+lang=EN-US>{{ end_time[0:4] }}年6月</span>在{{ name.campus }}{{ name.leng_school }}学习，并于<span lang=EN-US>{{ end_time[0:4] }}</span>年<span
+lang=EN-US>7</span>月获得毕业证。毕业证书编号：&nbsp;<span lang=EN-US>{{ name.code }}</span>&nbsp;<span
+lang=EN-US></span>。<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-indent:32.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+<br><br>
+<p class=MsoNormal style='text-indent:32.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span style='font-size:16.0pt;line-height:150%;font-family:
+宋体'>特此证明<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-indent:32.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span style='font-size:16.0pt;line-height:150%;font-family:
+宋体'>联系人：某某<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-indent:32.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span style='font-size:16.0pt;line-height:150%;font-family:
+宋体'>联系电话：<span lang=EN-US>0371-******451<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-indent:32.0pt;mso-char-indent-count:2.0;
+line-height:150%'><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-US style='font-size:
+16.0pt;line-height:150%;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-US style='font-size:
+16.0pt;line-height:150%;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-US style='font-size:
+16.0pt;line-height:150%;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=right style='text-align:right;line-height:150%'><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>某学院学籍科<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=right style='text-align:right;line-height:150%;
+word-break:break-all'><span lang=EN-US style='font-size:16.0pt;line-height:
+150%;font-family:宋体'><span style='mso-spacerun:yes'> </span></span><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>{{ format_today }} <span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=right style='text-align:right;line-height:150%'><span
+lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=right style='text-align:right'><span lang=EN-US
+style='font-size:16.0pt;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=right style='text-align:right'><span lang=EN-US
+style='font-size:16.0pt;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=right style='text-align:right'><span lang=EN-US
+style='font-size:16.0pt;font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+
+{% endblock %}

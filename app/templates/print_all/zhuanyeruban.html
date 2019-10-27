@@ -1,0 +1,303 @@
+{% extends 'matter_base.html' %}
+{% block content %}
+    <style media="print">
+        .none{display:none;height:0px;}
+    　</style>
+
+
+    <div><button class="none" onclick="print()">打印文章</button><br>
+        <br><p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:15pt; font-weight:normal">某学院转专业入班通知单</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal; text-decoration:underline">
+            </span><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal; text-decoration:underline">{{ name.xy }}
+            </span><span style="font-family:宋体; font-size:12pt; font-weight:normal">（院）系</span><span
+                style="font-family:宋体; font-size:14pt; font-weight:bold">：</span><span
+                style="font-family:宋体; font-size:12pt; font-weight:bold">转出院系留存</span></p>
+        <p style="margin:0pt 0pt 0pt 0.75pt; orphans:0; padding-left:5.25pt; text-align:justify; text-indent:-5.25pt; widows:0">
+            <span style="font-family:宋体; font-size:12pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xm }}</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:12pt">同学于</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[0:5] }}</span><span
+                style="font-family:宋体; font-size:12pt">年</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[8:10] }}</span><span
+                style="font-family:宋体; font-size:12pt">月</span><span style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[12:14] }}</span><span
+                style="font-family:宋体; font-size:12pt">日，由</span><span style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xy }}</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name_zy }}</span><span
+                style="font-family:宋体; font-size:12pt">专业</span><span style="font-family:宋体; font-size:12pt">
+            </span><span style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.bj[-2:] }}</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:宋体; font-size:12pt">申请转专业</span><span
+                style="font-family:宋体; font-size:12pt">，请予办理手续。</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span style="font-family:宋体; font-size:12pt">    
+            </span><span style="font-family:宋体; font-size:10.5pt">备注：学号</span><span
+                style="font-family:宋体; font-size:12pt">：{{ name.xh }}</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">&#xa0;</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; text-indent:21pt; widows:0"><span
+                style="font-family:宋体; font-size:12pt">                          </span><span
+                style="font-family:宋体; font-size:12pt"> </span><span style="font-family:宋体; font-size:12pt">学籍管理科
+                <br>                            （公章）</span><span style="font-family:宋体; font-size:12pt"> </span></p>
+        <p class=MsoNormal align=right style="margin-right:6.0000pt;word-break:break-all;text-align:right;
+line-height:25.0000pt;mso-line-height-rule:exactly;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">{{ format_today }}
+			</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><br><br><br><span
+                style="font-family:宋体; font-size:12pt">┄┄</span><span
+                style="font-family:宋体; font-size:12pt">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><span
+                style="font-family:宋体; font-size:12pt">┄┄┄</span><br><br><br><br></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:15pt; font-weight:normal">某学院转专业入班通知单</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal">宿管中心</span><span
+                style="font-family:宋体; font-size:14pt; font-weight:bold">：</span></p>
+        <p style="margin:0pt 0pt 0pt 6pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xm }}</span><span
+                style="font-family:宋体; font-size:12pt">同学于</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[0:5] }}</span><span
+                style="font-family:宋体; font-size:12pt">年</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[8:10] }}</span><span
+                style="font-family:宋体; font-size:12pt">月</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[12:14] }}</span><span
+                style="font-family:宋体; font-size:12pt">日，由</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xy }}</span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name_zy }}</span><span
+                style="font-family:宋体; font-size:12pt">专业 </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.bj[-2:] }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dom_dorm }}</span><span
+                style="font-family:宋体; font-size:12pt">宿舍，转入</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">&nbsp;</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.campus }}（</span><span
+                style="font-family:宋体; font-size:12pt">院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.discipline }}&nbsp;</span><span
+                style="font-family:宋体; font-size:12pt">专业</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.classgrade }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:'Times New Roman'; font-size:12pt;text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dorm }}</span>宿舍，请予办理手续。</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span style="font-family:宋体; font-size:12pt"> 
+            </span><span style="font-family:宋体; font-size:12pt">  </span><span
+                style="font-family:宋体; font-size:10.5pt">备注：</span><span
+                style="font-family:宋体; font-size:10.5pt">学号</span><span style="font-family:宋体; font-size:12pt">：{{ name.xh }}</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; text-indent:21pt; widows:0"><span
+                style="font-family:宋体; font-size:12pt">                          </span><span
+                style="font-family:宋体; font-size:12pt"> </span><span style="font-family:宋体; font-size:12pt">学籍管理科
+                <br>                            （公章）</span><span style="font-family:宋体; font-size:12pt"> </span></p>
+       <p class=MsoNormal align=right style="margin-right:6.0000pt;word-break:break-all;text-align:right;
+line-height:25.0000pt;mso-line-height-rule:exactly;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">{{ format_today }}
+			</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><br><br><br><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br><br>
+            <p
+                style="text-align: center;font-family:黑体; font-size:15pt; font-weight:normal">某学院转专业入班通知单</p></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.campus }}</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"> </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span
+                style="font-family:宋体; font-size:14pt; font-weight:bold">：</span><span
+                style="font-family:宋体; font-size:12pt; font-weight:bold">转入院系留存</span></p>
+        <p style="margin:0pt 0pt 0pt 6pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xm }}</span><span
+                style="font-family:宋体; font-size:12pt">同学于</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[0:5] }}</span><span
+                style="font-family:宋体; font-size:12pt">年</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[8:10] }}</span><span
+                style="font-family:宋体; font-size:12pt">月</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[12:14] }}</span><span
+                style="font-family:宋体; font-size:12pt">日，由</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xy }}</span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name_zy }}</span><span
+                style="font-family:宋体; font-size:12pt">专业 </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.bj[-2:] }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dom_dorm }}</span><span
+                style="font-family:宋体; font-size:12pt">宿舍，转入</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">&nbsp;{{ name.campus }}（</span><span
+                style="font-family:宋体; font-size:12pt">院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.discipline }}&nbsp;</span><span
+                style="font-family:宋体; font-size:12pt">专业</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.classgrade }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:'Times New Roman'; font-size:12pt;text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dorm }}</span>宿舍，请予办理手续。</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span style="font-family:宋体; font-size:12pt">   
+            </span><span style="font-family:宋体; font-size:10.5pt">备注：</span><span
+                style="font-family:宋体; font-size:10.5pt">学号</span><span style="font-family:宋体; font-size:12pt">：{{ name.xh }}</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; text-indent:21pt; widows:0"><span
+                style="font-family:宋体; font-size:12pt">                          </span><span
+                style="font-family:宋体; font-size:12pt"> </span><span style="font-family:宋体; font-size:12pt">学籍管理科
+                <br>                            （公章）</span><span style="font-family:宋体; font-size:12pt"> </span></p>
+        <p class=MsoNormal align=right style="margin-right:6.0000pt;word-break:break-all;text-align:right;
+line-height:25.0000pt;mso-line-height-rule:exactly;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">{{ format_today }}
+			</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span><br><br><br></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><br><span
+                style="font-family:黑体; font-size:15pt; font-weight:normal">某学院转专业入班通知单</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><br><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.campus }}</span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span style="font-family:宋体; font-size:12pt"> 
+            </span><span style="font-family:宋体; font-size:12pt; font-weight:bold">转入</span><span
+                style="font-family:宋体; font-size:12pt; font-weight:bold">院系</span><span
+                style="font-family:宋体; font-size:12pt; font-weight:bold">教学秘书</span><span
+                style="font-family:宋体; font-size:12pt; font-weight:bold">留存</span></p>
+        <p style="margin:0pt 0pt 0pt 6pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xm }}</span><span
+                style="font-family:宋体; font-size:12pt">同学于</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[0:5] }}</span><span
+                style="font-family:宋体; font-size:12pt">年</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[8:10] }}</span><span
+                style="font-family:宋体; font-size:12pt">月</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[12:14] }}</span><span
+                style="font-family:宋体; font-size:12pt">日，由</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xy }}</span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name_zy }}</span><span
+                style="font-family:宋体; font-size:12pt">专业 </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.bj[-2:] }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:'Times New Roman'; font-size:12pt">{{ name.dom_dorm }}</span><span
+                style="font-family:宋体; font-size:12pt">宿舍，转入</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">&nbsp;{{ name.campus }}（</span><span
+                style="font-family:宋体; font-size:12pt">院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.discipline }}&nbsp;</span><span
+                style="font-family:宋体; font-size:12pt">专业</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.classgrade }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:'Times New Roman'; font-size:12pt;text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dorm }}</span>宿舍，请予办理手续。</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span style="font-family:宋体; font-size:12pt">   
+            </span><span style="font-family:宋体; font-size:10.5pt">备注：</span><span
+                style="font-family:宋体; font-size:10.5pt">学号</span><span style="font-family:宋体; font-size:12pt">：{{ name.xh }}</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; text-indent:21pt; widows:0"><br><br><span
+                style="font-family:宋体; font-size:12pt">                          </span><span
+                style="font-family:宋体; font-size:12pt"> </span><span style="font-family:宋体; font-size:12pt">&nbsp;&nbsp;&nbsp;学籍管理科
+                <br>                            （公章）</span><span style="font-family:宋体; font-size:12pt"> </span></p>
+        <p class=MsoNormal align=right style="margin-right:6.0000pt;word-break:break-all;text-align:right;
+line-height:25.0000pt;mso-line-height-rule:exactly;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">{{ format_today }}
+			</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:15pt">&#xa0;</span></p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                style="font-family:黑体; font-size:15pt; font-weight:normal">某学院转专业入班通知单（</span><span
+                style="font-family:黑体; font-size:15pt; font-weight:normal">回执</span><span
+                style="font-family:黑体; font-size:15pt; font-weight:normal">）</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal; text-decoration:underline">学生处</span><span
+                style="font-family:宋体; font-size:12pt; font-weight:normal; text-decoration:underline">学籍科</span><span
+                style="font-family:宋体; font-size:14pt; font-weight:bold">留存</span></p>
+        <p style="margin:0pt 0pt 0pt 6pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xm }}</span><span
+                style="font-family:宋体; font-size:12pt">同学于</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[0:5] }}</span><span
+                style="font-family:宋体; font-size:12pt">年</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[8:10] }}</span><span
+                style="font-family:宋体; font-size:12pt">月</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ format_today[12:14] }}</span><span
+                style="font-family:宋体; font-size:12pt">日，由</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.xy }}</span><span
+                style="font-family:宋体; font-size:12pt">（院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name_zy }}&nbsp;</span><span
+                style="font-family:宋体; font-size:12pt">专业 </span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.bj[-2:] }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dom_dorm }}</span><span
+                style="font-family:宋体; font-size:12pt">宿舍，转入</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">&nbsp;{{ name.campus }}（</span><span
+                style="font-family:宋体; font-size:12pt">院）系</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.discipline }}</span><span
+                style="font-family:宋体; font-size:12pt">专业</span><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.classgrade }}</span><span
+                style="font-family:宋体; font-size:12pt">班</span><span
+                style="font-family:'Times New Roman'; font-size:12pt;text-decoration:underline"></span><span
+                style="font-family:宋体; font-size:12pt"><span
+                style="font-family:宋体; font-size:12pt; text-decoration:underline">{{ name.dorm }}</span>宿舍，请予办理手续。</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span style="font-family:宋体; font-size:12pt">   
+            </span><span style="font-family:宋体; font-size:10.5pt">备注：</span><span
+                style="font-family:宋体; font-size:10.5pt">学号</span><span style="font-family:宋体; font-size:12pt">：{{ name.xh }}</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; text-indent:21pt; widows:0"><span
+                style="font-family:宋体; font-size:12pt">                          </span><span
+                style="font-family:宋体; font-size:12pt"> </span><span style="font-family:宋体; font-size:12pt">学籍管理科
+                <br>                            （公章）</span><span style="font-family:宋体; font-size:12pt"> </span></p>
+        <p class=MsoNormal align=right style="margin-right:6.0000pt;word-break:break-all;text-align:right;
+line-height:25.0000pt;mso-line-height-rule:exactly;"><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">{{ format_today }}
+			</span><span style="mso-spacerun:'yes';font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">
+				<o:p></o:p>
+			</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">转出院系辅导员（班主任）签字：</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">转入院系辅导员（班主任）签字：</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">转入院系教学秘书签字：</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">原校区</span><span
+                style="font-family:宋体; font-size:12pt">宿舍管理员签字：</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">转入校区宿舍管理员签字：</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">&#xa0;</span></p>
+        <p style="font-size:12pt; line-height:130%; margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:宋体; font-size:12pt">&#xa0;</span></p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                style="font-family:'Times New Roman'; font-size:10.5pt">&#xa0;</span></p>
+    </div>
+{% endblock %}

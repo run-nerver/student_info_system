@@ -1,17 +1,25 @@
-FROM python:3.7-alpine
+FROM ubuntu:16.04
+
+LABEL maintainer="BlackRun"
+ENV PYTHONIOENCODING=utf-8
 
 
-RUN echo http://mirrors.ustc.edu.cn/alpine/v3.7/main > /etc/apk/repositories && \
-    echo http://mirrors.ustc.edu.cn/alpine/v3.7/community >> /etc/apk/repositories && \
-    mkdir -p /usr/src/app && \
-    mkdir -p /var/log/gunicorn
+RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+&& apt-get clean \
+&& apt-get update \
+&& apt-get install -y python3-pip python3-dev nginx supervisor\
+&& rm -rf /var/lib/apt/lists/*
+ADD pip.conf /etc/pip.conf
+COPY supervisord.conf /etc/supervisord.conf
+COPY supervisor.conf /etc/supervisor/
+RUN pip3 install --upgrade pip 
 
-RUN apk update && apk upgrade
 
-
-COPY . /usr/src/app
-WORKDIR /usr/src/app
-RUN  pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
-
+COPY . /huojingyuan
+WORKDIR /huojingyuan
+RUN  pip3 install -r requirements.txt \
+&& rm -rf /etc/supervisor/supervisord.conf \
+&& sed -i 's/nodaemon=false/nodaemon=true/g' /etc/supervisord.conf
 EXPOSE 8000
-CMD ["/usr/local/bin/gunicorn", "-w", "2", "-b", ":8000", "huojingyuan:app"]
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]

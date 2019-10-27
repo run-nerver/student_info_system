@@ -1,0 +1,655 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            {#    <ul class="layui-nav layui-layout-left">#}
+            {#      <li class="layui-nav-item"><a href="">业务中心</a></li>#}
+            {#    </ul>#}
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                        {{ current_user.name }}
+                    <dl class="layui-nav-child">
+                        <dd><a href="{{ url_for('admin_login.teacher_change_password') }}">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href=""><p class="float-right">
+                    <small>
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('admin_login.logout') }}">Logout</a>
+                        {% else %}
+                            <a href="{{ url_for('admin_login.login') }}">Login</a>
+                        {% endif %}
+                    </small>
+                </p></a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">业务审核</a>
+                        <dl class="layui-nav-child">
+                            <dd><a id="all">全部业务</a></dd>
+                            <dd><a id="fuxue">复学类申请</a>
+                            </dd>
+                            <dd><a id="zhuanzhuanye">转专业申请</a>
+                            </dd>
+                            <dd><a id="xiuxue">休学类申请</a>
+                            </dd>
+                            <dd><a id="tuixue">退学类申请</a>
+                            </dd>
+                            <dd><a id="xueli">学历证明申请</a>
+                            </dd>
+                            <dd><a id="baoliuxueji">保留学籍申请</a>
+                            </dd>
+                            <dd><a id="zhuxiao">注销学籍申请</a>
+                            </dd>
+                            <dd><a id="xueji">在校生学籍证明申请</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">其他事项</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">特殊事项</a></dd>
+                            <dd><a href="javascript:;">特殊事项</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <br/>
+            </blockquote>
+            <p class="layui-elem-quote"> &nbsp;<a href="{{ url_for('student.front') }}">业务申请</a>
+                <a id="look_all" style="float: right">&nbsp;查看所有</a>
+                <a id="today" style="float: right">查看今日&nbsp;/</a>
+            </p>
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-danger">
+                    <button class="layui-btn layui-btn-disabled layui-btn-radius">{{ message }}</button>
+                </div>
+            {% endfor %}
+
+
+            <div class="layui-form-item">
+
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="float: left;">姓名：</label>
+                    <div class="layui-input-inline">
+                        {{ form.name(class="layui-input") }}
+                        {#		      <input type="text" name="username" lay-verify="required" placeholder="请输入您的姓名" autocomplete="off" class="layui-input">#}
+                    </div>
+                </div>
+                {% if current_user.xy == 'admin' %}
+                    <div class="layui-inline">
+                        <label class="layui-form-label">院系：</label>
+                        <div class="layui-input-inline">
+                            {#        <select name="quiz">#}
+
+                            <td>{{ form.department(class="layui-select") }}</td>
+
+                        </div>
+                    </div>{% endif %}
+
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="width: auto">办理事项：</label>
+                    <div class="layui-input-inline">
+                        {{ form.matter(class="layui-select") }}
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <div class="layui-inline" style="margin: auto">
+                        <label class="layui-form-label" style="width: auto;float: left;">选择时间：</label>
+                        <div class="layui-input-inline">
+                            {{ form.datetimestart(class="layui-input",type="date") }}
+                        </div>
+                        <div class="layui-input-inline" style="width: auto;margin: 10px">至&nbsp;&nbsp;</div>
+                        <div class="layui-input-inline">
+                            {{ form.datetimeend(class="layui-input",type="date") }}
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="layui-inline">
+                    {{ form.Submit(class="layui-btn layui-btn-radius") }}
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(document).keyup(function (event) {
+                    if (event.keyCode == 13){
+                        $('#Submit').click()
+                    }
+                })
+            </script>
+            <script type="text/javascript">
+                $("#datetimestart").datetimepicker({
+                    format: 'yyyy-mm-dd',
+                    minView: 'month',
+                    language: 'zh-CN',
+                    autoclose: true
+
+                });
+                $("#datetimeend").datetimepicker({
+                    format: 'yyyy-mm-dd',
+                    minView: 'month',
+                    language: 'zh-CN',
+                    autoclose: true
+                })
+            </script>
+
+            <table id="sent_json" lay-filter="test"></table>
+
+            {% if current_user.role == 'admin' %}
+                <script>
+                    layui.use('table', function () {
+                        var table = layui.table.render({
+                            elem: '#sent_json',
+                            url: '{{ url_for('admin_edit.query_json') }}',
+                            page: true,
+                            lang: 'cn',
+                            where: {
+                                'csrf_token': '{{ csrf_token() }}',
+                                'name': '',
+                                'datetimestart': '{{ today }}',
+                                'datetimeend': '',
+                                'matter': 'info',
+                                'department': 'admin'
+                            },
+                            id: 'sent_json_api',
+                            method: 'post',
+                            loading: true,
+                            toolbar: '<div>申请信息</div>',
+                            title: '信息栏',
+                            defaultToolbar: ['print', 'filter', 'exports'],
+                            cols: [
+                                [
+                                    {
+                                        field: 'xm',
+                                        title: '姓名',
+                                        unresize: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'xh',
+                                        title: '学号',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'xy',
+                                        title: '学院',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'bj',
+                                        title: '班级',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'sh',
+                                        title: '事项',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'created_date',
+                                        title: '提交日期',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'reason',
+                                        title: '理由',
+                                    },
+                                    {
+                                        field: 'cz',
+                                        title: '操作',
+                                        align: 'center'
+                                    }
+                                ]
+                            ]
+
+                        });
+                        $(function () {
+                            $('input#Submit').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': $('input#name').val(),
+                                        'datetimestart': $('input#datetimestart').val(),
+                                        'datetimeend': $('input#datetimeend').val(),
+                                        'matter': $('select#matter').val(),
+                                        'department': $('select#department').val()
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#all').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'info',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#xueli').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'xueli',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#xueji').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'xueji',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#zhuxiao').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'zhuxiao',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#fuxue').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'fuxue',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#xiuxue').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'xiuxue',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#zhuanzhuanye').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'zhuanzhuanye',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#baoliuxueji').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'baoliuxueji',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#tuixue').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'tuixue',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#today').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '{{ today }}',
+                                        'datetimeend': '',
+                                        'matter': 'info',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#look_all').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'info',
+                                        'department': 'admin'
+                                    },
+                                })
+                            })
+                        });
+                    });
+                </script>
+            {% endif %}
+
+            {% if current_user.role == 'user' %}
+                <script>
+                    layui.use('table', function () {
+                        var table = layui.table.render({
+                            elem: '#sent_json',
+                            url: '{{ url_for("admin_edit.query_json") }}',
+                            page: true,
+                            lang: 'cn',
+                            where: {
+                                'csrf_token': '{{ csrf_token() }}',
+                                'name': '',
+                                'datetimestart': '{{ today }}',
+                                'datetimeend': '',
+                                'matter': 'info',
+                                'department': '{{ current_user.xy }}'
+                            },
+                            id: 'sent_json_api',
+                            method: 'post',
+                            loading: true,
+                            toolbar: '<div>申请信息</div>',
+                            title: '信息栏',
+                            defaultToolbar: ['print', 'filter', 'exports'],
+                            cols: [
+                                [
+                                    {
+                                        field: 'xm',
+                                        title: '姓名',
+                                        unresize: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'xh',
+                                        title: '学号',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'xy',
+                                        title: '学院',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'bj',
+                                        title: '班级',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'sh',
+                                        title: '事项',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'created_date',
+                                        title: '提交日期',
+                                        sort: true,
+                                        align: 'center'
+                                    },
+                                    {
+                                        field: 'reason',
+                                        title: '理由',
+                                    },
+                                    {
+                                        field: 'cz',
+                                        title: '操作',
+                                        align: 'center'
+                                    }
+                                ]
+                            ]
+
+                        });
+                        $(function () {
+                            $('input#Submit').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': $('input#name').val(),
+                                        'datetimestart': $('input#datetimestart').val(),
+                                        'datetimeend': $('input#datetimeend').val(),
+                                        'matter': $('select#matter').val(),
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#all').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'info',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#xueli').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': '学历',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#xueji').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': '学籍',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#zhuxiao').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': '注销',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#fuxue').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'fuxue',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#xiuxue').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'xiuxue',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#zhuanzhuanye').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'zhuanzhuanye',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#baoliuxueji').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'baoliuxueji',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#tuixue').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'tuixue',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#today').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '{{ today }}',
+                                        'datetimeend': '',
+                                        'matter': 'info',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                        $(function () {
+                            $('a#look_all').click(function () {
+                                table.reload({
+                                    where: {
+                                        'csrf_token': '{{ csrf_token() }}',
+                                        'name': '',
+                                        'datetimestart': '',
+                                        'datetimeend': '',
+                                        'matter': 'info',
+                                        'department': '{{ current_user.xy }}'
+                                    },
+                                })
+                            })
+                        });
+                    });
+                </script>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+            //注意：导航 依赖 element 模块，否则无法进行功能性操作
+            layui.use('element', function () {
+                var element = layui.element;
+
+                //…
+            });
+        </script>
+    </body>
+
+{% endblock %}
