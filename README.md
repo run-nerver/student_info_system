@@ -59,6 +59,7 @@ conn = pymysql.connect(
     )
 ```
 3、将项目根目录xueji.sql覆盖你的数据库  
+4、如果需要使用自己的数据，把note表中数据删除，然后按照根目录下的xueji_data.xls文件将自己数据做出xls，浏览器打开/admin_edit/upload路径上传即可
 
 
 
