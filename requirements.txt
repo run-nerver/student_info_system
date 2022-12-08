@@ -1,7 +1,7 @@
 alembic==1.2.1
 astroid==2.2.5
 Bootstrap-Flask==1.1.0
-certifi==2019.9.11
+certifi==2022.12.7
 Click==7.0
 colorama==0.4.1
 dominate==2.4.0
